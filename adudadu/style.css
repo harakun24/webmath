@@ -432,3 +432,58 @@ body {
     width: 85%;
   }
 }
+
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  .control {
+    /* grid-template-columns: repeat(2, 1fr); */
+    gap: 4px;
+  }
+  .peluang {
+    grid-column: 1;
+    margin: 0;
+    margin-left: 20px;
+    /* font-size: 70%; */
+  }
+  .peluang:nth-child(3) {
+    margin: 0;
+    margin-right: 20px;
+    grid-column: 2;
+  }
+  .sts {
+    grid-column: 1;
+    margin: 0;
+    margin-left: 20px;
+    font-size: 70%;
+  }
+  .skor {
+    grid-column: 2;
+    margin: 0;
+    margin-right: 20px;
+  }
+  .banner {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0;
+    /* gap: 3px; */
+    font-size: 70%;
+    justify-content: space-around;
+  }
+  .banner img {
+    width: 20%;
+  }
+  .inner {
+    width: 42%;
+  }
+  .board {
+    gap: 0px;
+  }
+  .pertanyaan {
+    font-size: 80%;
+  }
+  .box {
+    font-size: 40%;
+  }
+  .inner .habis {
+    font-size: 70%;
+  }
+}
