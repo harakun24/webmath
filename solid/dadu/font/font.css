@@ -1,0 +1,23 @@
+/** @format */
+
+@font-face {
+  font-family: title;
+  src: url(./title.otf);
+}
+@font-face {
+  font-family: subtitle;
+  src: url(./subtitle.ttf);
+}
+@font-face {
+  font-family: teks;
+  src: url(./teks.otf);
+  /* font-size: 150%; */
+}
+@font-face {
+  font-family: poppins;
+  src: url(./poppins.otf);
+}
+@font-face {
+  font-family: poplite;
+  src: url(./popliite.otf);
+}

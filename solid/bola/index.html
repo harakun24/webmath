@@ -1,0 +1,117 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Persamaan Linear</title>
+    <link rel="stylesheet" href="../fa/css/all.min.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/color.css" />
+    <link rel="stylesheet" href="./css/layout.css" />
+    <link rel="stylesheet" href="./font/font.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./katex/katex.min.css" />
+    <script src="./katex/katex.min.js"></script>
+    <script src="./katex/contrib/auto-render.min.js"></script>
+
+    <script src="../fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h4 style="opacity: 0">Dunia Sistem Persamaan Linear</h4>
+      <h1>Simulasi Sistem Persamaan Linear</h1>
+      <div class="btn-group">
+        <button class="petunjuk">
+          Petunjuk <span><i class="fa fa-lightbulb"></i></span></button
+        ><button class="mulai" onclick="gameStart()">
+          Mulai <span><i class="fa fa-play"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="content">
+      <div class="toy">
+        <div class="machine">
+          <img src="./assets/selang4.png" alt="" />
+        </div>
+        <div class="balls">
+          <div class="keranjang">
+            <!-- <div class="ball voli"></div>
+            <div class="ball tenis"></div>
+            <div class="ball pong"></div> -->
+            <div class="chart1"></div>
+            <div class="chart2"></div>
+            <div class="chart3"></div>
+          </div>
+        </div>
+        <div class="timbangan">
+          <img src="./assets/timbangan3.png" alt="" />
+          <h3 class="berat">--<span> gram</span></h3>
+        </div>
+        <div class="btns">
+          <div class="add" onclick="generateBall('voli')">
+            <img src="./assets/voli.png" alt="" />
+            <b class="ex">X</b>
+          </div>
+          <div class="add" onclick="generateBall('tenis')">
+            <img src="./assets/tenis.png" alt="" />
+            <b class="ey">Y</b>
+          </div>
+          <div class="add" onclick="generateBall('pong')">
+            <img src="./assets/pingpong.png" alt="" />
+            <b class="ez">Z</b>
+          </div>
+        </div>
+        <div class="btnz">
+          <div class="add" onclick="generateBall('voli')">
+            <img src="./assets/voli.png" alt="" />
+            <b class="ex">X</b>
+          </div>
+          <div class="add" onclick="generateBall('tenis')">
+            <img src="./assets/tenis.png" alt="" />
+            <b class="ey">Y</b>
+          </div>
+          <div class="add" onclick="generateBall('pong')">
+            <img src="./assets/pingpong.png" alt="" />
+            <b class="ez">Z</b>
+          </div>
+        </div>
+      </div>
+      <div class="desc">
+        <div class="calk"></div>
+        <div class="btn-groups">
+          <button style="grid-column: span 2; grid-row: 3" onclick="simpanFn()">
+            <span> Simpan </span>
+            <i class="fa fa-save fa-lg"></i>
+          </button>
+          <button style="grid-column: 2; grid-row: 1" onclick="undo()">
+            <span> Batal </span>
+            <i class="fa fa-undo fa-lg"></i>
+          </button>
+          <button style="grid-column: 1; grid-row: 1" onclick="timbang()">
+            <span> Timbang </span>
+            <i class="fa fa-balance-scale fa-lg"></i>
+          </button>
+          <button style="grid-column: 1; grid-row: 2" onclick="rmLine()">
+            <span> Hapus </span>
+            <i class="fa fa-minus fa-lg"></i>
+          </button>
+          <button style="grid-column: 2; grid-row: 2" onclick="reset()">
+            <span>Bersihkan </span>
+            <i class="fa fa-trash-alt fa-lg"></i>
+          </button>
+          <button style="grid-column: span 2; grid-row: 4">
+            <span> Pertanyaan </span>
+            <i class="fa fa-question fa-lg"></i>
+          </button>
+        </div>
+      </div>
+      <div class="alert">
+        <span>Minimal dua bola untuk bisa ditimbang</span>
+        <i class="fa fa-close" onclick="closeNotif(this)"></i>
+      </div>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

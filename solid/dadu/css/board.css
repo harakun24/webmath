@@ -1,0 +1,86 @@
+/** @format */
+
+.board {
+  cursor: pointer;
+  width: 60%;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  gap: 8px;
+  box-sizing: border-box;
+}
+.col {
+  display: grid;
+  place-items: center;
+  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) 0.5s;
+  overflow: visible;
+  font-weight: 100;
+  font-family: poplite;
+  transform-origin: center;
+}
+.col img {
+  width: 100%;
+}
+
+.col:not(:nth-child(-n + 7)):not(:nth-child(7n + 1)) {
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.288);
+  border-radius: 6px;
+  font-size: 85%;
+}
+
+.col:not(:nth-child(-n + 7)):not(:nth-child(7n + 1)).active {
+  background-color: yellow;
+  transform: rotateY(360deg);
+  opacity: 0.8;
+}
+.col:not(:nth-child(-n + 7)):not(:nth-child(7n + 1)):hover {
+  background-color: rgb(255, 102, 0);
+  background-color: rgb(111, 255, 0);
+}
+.per {
+  display: grid;
+  width: fit-content;
+  place-items: center;
+}
+.per span:nth-child(2) {
+  border-top: 1px solid black;
+}
+.tbl span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+table {
+  font-family: poplite;
+}
+td {
+  padding: 3px;
+}
+td div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+}
+td div span:nth-child(2) {
+  border-top: 1px solid black;
+}
+.tbl {
+  display: flex;
+}
+tr:not(:nth-child(1)) td:nth-child(3) {
+  text-align: right;
+}
+@media (max-width: 500px) {
+  .board {
+    width: 80%;
+  }
+  .col {
+    font-size: 60%;
+  }
+  .col:not(:nth-child(-n + 7)):not(:nth-child(7n + 1)).active {
+    font-size: 60%;
+  }
+}

@@ -1,0 +1,79 @@
+/** @format */
+
+.setting {
+  position: absolute;
+  width: 40%;
+  /* height: 100%; */
+  background-color: white;
+  transform: translate(-50%) translateY(-50%);
+  box-shadow: 0 0 4px 4px rgba(116, 115, 115, 0.137);
+  border-radius: 6px;
+  /* display: none; */
+  transition: cubic-bezier(0.55, 0.055, 0.675, 0.19) 0.3s;
+  top: 50%;
+  left: 50%;
+  padding: 20px 0;
+}
+.setting .itm {
+  padding: 15px 22px;
+  text-align: center;
+  font-family: poplite;
+  border-top: 2px solid rgba(58, 58, 58, 0.096);
+  transition: cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+}
+.itm:nth-child(1) {
+  border: none;
+}
+.itm:hover {
+  background-color: var(--gray3);
+  color: var(--blue);
+}
+.bcover {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+}
+.ccover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.39);
+}
+@media (max-width: 700px) {
+  .setting {
+    width: 70%;
+  }
+}
+
+.barWidth {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background-color: rgb(0, 89, 255);
+  bottom: 0;
+  opacity: 0;
+}
+.barHeight {
+  position: absolute;
+  width: 4px;
+  height: 100%;
+  background-color: rgb(255, 0, 43);
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+}
+.barMiring {
+  position: absolute;
+  width: 4px;
+  height: 200px;
+  background-color: rgb(13, 194, 52);
+  bottom: 0;
+  left: 0;
+  transform: rotate(53.13deg);
+  transform-origin: bottom left;
+  opacity: 0;
+}

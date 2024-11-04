@@ -1,0 +1,14 @@
+/** @format */
+
+:root {
+  --gray: #677284;
+  --gray2: #67728483;
+  --gray3: #67728436;
+  --blue: #255d91;
+  --orange: #fe9d0e;
+  --orange2: rgba(254, 158, 14, 0.452);
+  --white: #fefefe;
+  --lightBlue: #00a3f0;
+  --green: #00f048;
+  --red: rgba(165, 20, 20, 0.774);
+}

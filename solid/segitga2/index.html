@@ -1,0 +1,353 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/color.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./font/font.css" />
+    <link rel="stylesheet" href="./css/contoh.css" />
+    <link rel="stylesheet" href="./css/settings.css" />
+    <link rel="stylesheet" href="../fa/css/all.min.css" />
+    <script src="../fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="cover">
+      <img src="./back.png" alt="" />
+    </div>
+    <div class="page1">
+      <h3># Jelajah Segitiga Siku-siku</h3>
+      <h1>Perbandingan Trigonometri!</h1>
+      <div class="demoSegitiga3"></div>
+      <div class="demoSegitiga"></div>
+      <div class="demoSegitiga2"></div>
+      <div class="bottom">
+        <button class="btn petunjuk" onclick="showDialog()">
+          <span style="grid-column: 3"> Petunjuk </span>
+          <i class="fas fa-lightbulb fa-xl"></i>
+        </button>
+        <button class="btn mulai" onclick="startGame()">
+          <span style="grid-column: 3"> Mulai </span>
+          <i class="fas fa-play fa-xl"></i>
+        </button>
+      </div>
+    </div>
+    <div class="bcover">
+      <div class="ccover" onclick="tutupMenu()"></div>
+      <div class="setting">
+        <div class="itm">Kesimpulan</div>
+        <div class="itm" onclick="showContoh()">Contoh</div>
+        <div class="itm" onclick="resetSegitiga()">Reset</div>
+        <div
+          class="itm"
+          onclick="if(confirm('apakah anda yakin ingin keluar?'))document.location.reload()">
+          Keluar
+        </div>
+      </div>
+    </div>
+
+    <div class="page2">
+      <div class="content">
+        <div class="cover"></div>
+        <div class="wrapper-segitiga">
+          <div class="segitiga">
+            <div class="acute"></div>
+          </div>
+          <div class="siku"></div>
+          <div class="topHover"></div>
+          <div class="sudutB">&beta; = <b class="sdtB">30</b> &deg;</div>
+          <span id="outH">30</span>
+          <span id="outW">40</span>
+          <span id="outD">50</span>
+          <div class="barMiring"></div>
+          <div class="barHeight"></div>
+          <div class="barWidth"></div>
+          <div class="btnUp btn-c"></div>
+          <div class="btnLeft btn-c"></div>
+          <span id="outS">α = 30 &deg;</span>
+        </div>
+        <button class="reset" onclick="resetSegitiga()">
+          <i class="fas fa-sync fa-xl"></i>
+        </button>
+        <button class="expand" onclick="toggleContent(this)">
+          <i class="fas fa-expand fa-xl show"></i>
+        </button>
+      </div>
+      <div class="bottom">
+        <div class="ctrl">
+          <input
+            type="number"
+            min="0"
+            label="putar"
+            step="5"
+            max="84"
+            placeholder="0&deg;"
+            id="sudut"
+            value="0"
+            onchange="aturSudut(this)" />
+          <label for="sudut">Atur Sudut</label>
+        </div>
+        <div class="ctrl">
+          <input
+            type="number"
+            min="0"
+            label="putar"
+            step="10"
+            placeholder="0&deg;"
+            id="rotasi"
+            value="0"
+            onchange="rotating(this)" />
+          <label for="rotasi">Putar Segitiga</label>
+        </div>
+
+        <div class="menu">
+          <button class="btn-menu" onclick="bukaMenu()">
+            <i class="fas fa-sliders-h"></i>
+          </button>
+        </div>
+      </div>
+      <div class="trig">
+        <div class="section">
+          <label class="check">
+            <input type="checkbox" name="" />
+            <span class="mark"></span>
+            <b>sin <b class="sectsdt">30&deg;</b></b>
+          </label>
+          <div class="btm">
+            <span>Depan</span>
+            <span>=</span>
+            <span class="depanTxt">30</span>
+            <span style="transform: scale(1.5) translate(25%)">&asymp;</span>
+            <span id="sin">100</span>
+            <span>Miring</span>
+            <span class="miringTxt">80</span>
+          </div>
+        </div>
+        <div class="section">
+          <label class="check">
+            <input type="checkbox" name="" />
+            <span class="mark"></span>
+            <b>cos <b class="sectsdt">30&deg;</b></b>
+          </label>
+          <div class="btm">
+            <span>Samping</span>
+            <span>=</span>
+            <span class="sampingTxt">30</span>
+            <span style="transform: scale(1.5) translate(25%)">&asymp;</span>
+            <span id="cos">100</span>
+            <span>Miring</span>
+            <span class="miringTxt">80</span>
+          </div>
+        </div>
+        <div class="section">
+          <label class="check">
+            <input type="checkbox" name="" />
+            <span class="mark"></span>
+            <b>tan <b class="sectsdt">30&deg;</b></b>
+          </label>
+          <div class="btm">
+            <span>Depan</span>
+            <span>=</span>
+            <span class="depanTxt">30</span>
+            <span style="transform: scale(1.5) translate(25%)">&asymp;</span>
+            <span id="tan">100</span>
+            <span>Samping</span>
+            <span class="samping">80</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dialogPetunjuk">
+      <div class="blankPanel" onclick="hideDialog()"></div>
+      <div class="panel">
+        <div class="slider">
+          <div class="slide" id="slide-1">
+            <img src="./assets/rr.gif" alt="" />
+            <p>
+              <b> #1&nbsp;&nbsp;&nbsp;&nbsp; Mengubah Ukuran Segitiga</b>
+              <br />
+              <span> Tarik tombol untuk mengubah ukuran segitiga. </span>
+            </p>
+          </div>
+          <div class="slide" id="slide-2">
+            <img src="./assets/sincostan.gif" alt="" />
+            <p>
+              <b> #2&nbsp;&nbsp;&nbsp;&nbsp; Memilih Mode trigonometri</b>
+              <br />
+              <span>
+                Pilih sin, cos atau tan untuk melihat aplikasi pada segitiga
+              </span>
+            </p>
+          </div>
+          <div class="slide" id="slide-3">
+            <img src="./assets/movmov.gif" alt="" />
+            <p>
+              <b> #3&nbsp;&nbsp;&nbsp;&nbsp; Memindahkan Posisi Segitiga</b>
+              <br />
+              <span> Tarik pada segitiga untuk menggeser segitiga. </span>
+            </p>
+          </div>
+          <div class="slide" id="slide-4">
+            <img src="./assets/putar.gif" alt="" />
+            <p>
+              <b> #4&nbsp;&nbsp;&nbsp;&nbsp; Memutar Segitiga</b>
+              <br />
+              <span> Ubah nilai rotasi untuk memutar segiitiga. </span>
+            </p>
+          </div>
+          <div class="slide" id="slide-5">
+            <img src="./assets/sdt.gif" alt="" />
+            <p>
+              <b> #5&nbsp;&nbsp;&nbsp;&nbsp; Mengatur sudut segitiga</b>
+              <br />
+              <span>
+                Isi nilai untuk mengubah sudut segitiga secara manual
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="control-nav">
+          <a href="#slide-1"><span>1</span></a>
+          <a href="#slide-2"><span>2</span></a>
+          <a href="#slide-3"><span>3</span></a>
+          <!-- <a href="#slide-4"><span>4</span></a>
+          <a href="#slide-5"><span>5</span></a> -->
+        </div>
+      </div>
+    </div>
+    <div class="contoh">
+      <div class="contohback" onclick="hideContoh()"></div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-1" id="ex-1">
+            <div class="wall">
+              <div class="title">Anak Kecil</div>
+              <div class="wrapper-obj1">
+                <img src="./assets/tenis.png" alt="" />
+                <div class="obj1"></div>
+                <div class="ddiag"></div>
+                <div class="ground">
+                  <span>200 cm</span>
+                </div>
+                <div class="brick">
+                  <b style="display: none">200 cm</b>
+                  <img src="./assets/anak.png" alt="" />
+                </div>
+              </div>
+              <div class="line">
+                <span>114 cm</span>
+              </div>
+            </div>
+            <div class="txt">
+              <div class="dial">
+                <p>Elemen-elemen dalam gambar adalah:</p>
+                <ul>
+                  <li><b>Tinggi orang</b> : Sisi tegak segitiga siku-siku.</li>
+                  <li>
+                    <b>Jarak pengamat ke objek</b> : Sisi mendatar segitiga
+                    siku-siku.
+                  </li>
+                  <li>
+                    <b>Garis pandang</b> : Sisi miring segitiga siku-siku.
+                  </li>
+                  <li>
+                    <b> Sudut</b> : Sudut yang dibentuk antara garis pandang
+                    dengan horizontal.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ex-1" id="ex-2">
+            <div class="wall">
+              <div class="title">Remaja</div>
+              <div class="wrapper-obj1">
+                <img src="./assets/tenis.png" alt="" />
+                <div class="obj1"></div>
+                <div class="ddiag"></div>
+                <div class="ground"></div>
+                <div class="brick">
+                  <b style="display: none">200 cm</b>
+                  <img src="./assets/remaja.png" alt="" />
+                </div>
+              </div>
+              <div class="line">
+                <span>148 cm</span>
+              </div>
+            </div>
+            <div class="txt">
+              <div class="dial">
+                <p>Elemen-elemen dalam gambar adalah:</p>
+                <ul>
+                  <li><b>Tinggi orang</b> : Sisi tegak segitiga siku-siku.</li>
+                  <li>
+                    <b>Jarak pengamat ke objek</b> : Sisi mendatar segitiga
+                    siku-siku.
+                  </li>
+                  <li>
+                    <b>Garis pandang</b> : Sisi miring segitiga siku-siku.
+                  </li>
+                  <li>
+                    <b> Sudut</b> : Sudut yang dibentuk antara garis pandang
+                    dengan horizontal.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ex-1" id="ex-3">
+            <div class="wall">
+              <div class="title">Orang Dewasa</div>
+              <div class="wrapper-obj1">
+                <img src="./assets/tenis.png" alt="" />
+                <div class="obj1"></div>
+                <div class="ddiag"></div>
+                <div class="ground">
+                  <span>305 cm</span>
+                </div>
+                <div class="brick">
+                  <b style="display: none">200 cm</b>
+                  <img src="./assets/dewasa.png" alt="" />
+                </div>
+              </div>
+              <div class="line">
+                <span></span>
+              </div>
+            </div>
+            <div class="txt">
+              <div class="dial">
+                <p>Elemen-elemen dalam gambar adalah:</p>
+                <ul>
+                  <li><b>Tinggi orang</b> : Sisi tegak segitiga siku-siku.</li>
+                  <li>
+                    <b>Jarak pengamat ke objek</b> : Sisi mendatar segitiga
+                    siku-siku.
+                  </li>
+                  <li>
+                    <b>Garis pandang</b> : Sisi miring segitiga siku-siku.
+                  </li>
+                  <li>
+                    <b> Sudut</b> : Sudut yang dibentuk antara garis pandang
+                    dengan horizontal.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="control-nav">
+          <a href="#ex-1"><span>1</span></a>
+          <a href="#ex-2"><span>2</span></a>
+          <a href="#ex-3"><span>3</span></a>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script src="./js/drag.js"></script>
+    <script src="./js/sudut.js"></script>
+  </body>
+</html>

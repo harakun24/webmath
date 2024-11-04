@@ -1,0 +1,229 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/color.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./font/font.css" />
+    <link rel="stylesheet" href="./css/settings.css" />
+    <link rel="stylesheet" href="./css/contoh.css" />
+    <link rel="stylesheet" href="../fa/css/all.min.css" />
+    <script src="../fa/js/all.min.js"></script>
+  </head>
+  <body>
+    <div class="cover">
+      <img src="./back.png" alt="" />
+    </div>
+    <div class="page1">
+      <h3># Jelajah Segitiga Siku-siku</h3>
+      <h1>Temukan Sisi-sisinya!</h1>
+      <div class="demoSegitiga3"></div>
+      <div class="demoSegitiga"></div>
+      <div class="demoSegitiga2"></div>
+      <div class="bottom">
+        <button class="btn petunjuk" onclick="showDialog()">
+          <span style="grid-column: 3"> Petunjuk </span>
+          <i class="fas fa-lightbulb fa-xl"></i>
+        </button>
+        <button class="btn mulai" onclick="startGame()">
+          <span style="grid-column: 3"> Mulai </span>
+          <i class="fas fa-play fa-xl"></i>
+        </button>
+      </div>
+    </div>
+    <div class="bcover">
+      <div class="ccover" onclick="tutupMenu()"></div>
+      <div class="setting">
+        <div class="itm">Kesimpulan</div>
+        <div class="itm" onclick="showContoh()">Contoh</div>
+        <div class="itm" onclick="resetSegitiga()">Reset</div>
+        <div
+          class="itm"
+          onclick="if(confirm('apakah anda yakin ingin keluar?'))document.location.reload()">
+          Keluar
+        </div>
+      </div>
+    </div>
+
+    <div class="page2">
+      <div class="content">
+        <div class="cover"></div>
+        <div class="wrapper-segitiga">
+          <div class="segitiga">
+            <div class="acute"></div>
+          </div>
+          <div class="siku"></div>
+          <div class="btnUp btn-c"></div>
+          <div class="topHover"></div>
+          <div class="sudutB">Sudut &beta; = <b class="sdtB">30</b> &deg;</div>
+          <div class="btnLeft btn-c"></div>
+          <span id="outH">30</span>
+          <span id="outW">40</span>
+          <span id="outD">50</span>
+          <span id="outS">α = 30 &deg;</span>
+        </div>
+        <button class="reset" onclick="resetSegitiga()">
+          <i class="fas fa-sync fa-xl"></i>
+        </button>
+        <button class="expand" onclick="toggleContent(this)">
+          <i class="fas fa-expand fa-xl show"></i>
+        </button>
+      </div>
+      <div class="bottom">
+        <div class="ctrl">
+          <input
+            type="number"
+            min="0"
+            label="putar"
+            step="5"
+            max="84"
+            placeholder="0&deg;"
+            id="sudut"
+            value="0"
+            onchange="aturSudut(this)" />
+          <label for="sudut">Atur Sudut</label>
+        </div>
+        <div class="ctrl">
+          <input
+            type="number"
+            min="0"
+            label="putar"
+            step="10"
+            placeholder="0&deg;"
+            id="rotasi"
+            value="0"
+            onchange="rotating(this)" />
+          <label for="rotasi">Putar Segitiga</label>
+        </div>
+
+        <div class="menu">
+          <button class="btn-menu" onclick="bukaMenu()">
+            <i class="fas fa-sliders-h"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="dialogPetunjuk">
+      <div class="blankPanel" onclick="hideDialog()"></div>
+      <div class="panel">
+        <div class="slider">
+          <div class="slide" id="slide-1">
+            <img src="./assets/rezise.gif" alt="" />
+            <p>
+              <b> #1&nbsp;&nbsp;&nbsp;&nbsp; Mengubah Ukuran Segitiga</b>
+              <br />
+              <span> Tarik tombol untuk mengubah ukuran segitiga. </span>
+            </p>
+          </div>
+
+          <div class="slide" id="slide-3">
+            <img src="./assets/pinpin.gif" alt="" />
+            <p>
+              <b> #2&nbsp;&nbsp;&nbsp;&nbsp; Memindahkan Posisi Segitiga</b>
+              <br />
+              <span> Tarik pada segitiga untuk menggeser segiitiga. </span>
+            </p>
+          </div>
+          <div class="slide" id="slide-4">
+            <img src="./assets/rtt.gif" alt="" />
+            <p>
+              <b> #3&nbsp;&nbsp;&nbsp;&nbsp; Memutar Segitiga</b>
+              <br />
+              <span> Ubah nilai rotasi untuk memutar segiitiga. </span>
+            </p>
+          </div>
+          <div class="slide" id="slide-5">
+            <img src="./assets/sdt.gif" alt="" />
+            <p>
+              <b> #4&nbsp;&nbsp;&nbsp;&nbsp; Mengatur sudut segitiga</b>
+              <br />
+              <span>
+                Isi nilai untuk mengubah sudut segitiga secara manual
+              </span>
+            </p>
+          </div>
+        </div>
+        <div class="control-nav">
+          <a href="#slide-1"><span>1</span></a>
+          <a href="#slide-3"><span>2</span></a>
+          <a href="#slide-4"><span>3</span></a>
+          <a href="#slide-5"><span>4</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="contoh">
+      <div class="contohback" onclick="hideContoh()"></div>
+      <div class="examples">
+        <div class="ex">
+          <div class="ex-1" id="ex-1">
+            <div class="wall">
+              <div class="wrapper-obj1">
+                <div class="obj1">
+                  <div class="angl-a"></div>
+                  <div class="angl-b"></div>
+                  <div class="angl-c"></div>
+                  <span class="t-a">A</span>
+                  <span class="t-c"></span>
+                </div>
+                <div class="ddiag"></div>
+                <span class="t-b">B</span>
+                <div class="ground"></div>
+                <div class="brick"></div>
+              </div>
+            </div>
+            <div class="txt">
+              <div class="dial">
+                <ul>
+                  <li>Sisi miring: Panjang tangga.</li>
+                  <li>Sisi depan: Tinggi dinding yang dicapai oleh tangga.</li>
+                  <li>Sisi samping: Jarak antara kaki tangga dan dinding.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="ex-1" id="ex-2">
+            <div class="wall">
+              <div class="wrapper-obj1">
+                <div class="obj1">
+                  <div class="angl-a"></div>
+                  <div class="angl-b"></div>
+                  <div class="angl-c"></div>
+                  <span class="t-a">A</span>
+                  <span class="t-b">B</span>
+                  <span class="t-c"></span>
+                </div>
+                <div class="sun"></div>
+                <div class="ddiag2"></div>
+                <div class="ground2"></div>
+                <div class="brick2">
+                  <img src="./assets/tiangbendera2.png" alt="" />
+                </div>
+              </div>
+            </div>
+            <!-- <div class="txt">
+              <div class="dial">
+                <ul>
+                  <li>Sisi miring: Panjang tangga.</li>
+                  <li>Sisi depan: Tinggi dinding yang dicapai oleh tangga.</li>
+                  <li>Sisi samping: Jarak antara kaki tangga dan dinding.</li>
+                </ul>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="control-nav">
+          <a href="#ex-1"><span>1</span></a>
+          <a href="#ex-2"><span>2</span></a>
+        </div>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script src="./js/drag.js"></script>
+    <script src="./js/sudut.js"></script>
+  </body>
+</html>

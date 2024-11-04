@@ -1,0 +1,107 @@
+/** @format */
+
+.desc {
+  display: grid;
+  grid-template-rows: 1fr 1.5fr;
+  gap: 8px;
+}
+
+.btn-groups {
+  grid-row: 2;
+  grid-template-columns: 1fr 1fr;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  padding: 12px;
+  box-sizing: border-box;
+  gap: 10px;
+  background-color: var(--white);
+  border-radius: 6px;
+  box-shadow: -4px 4px 0 rgba(41, 44, 192, 0.493);
+}
+.btn-groups button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 10px;
+  cursor: pointer;
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  background-color: var(--white);
+  box-shadow: -4px 4px 0 rgba(41, 44, 192, 0.493);
+  font-weight: bold;
+  color: var(--blue);
+  transition: cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
+}
+
+.btn-groups button:hover {
+  background-color: rgba(41, 44, 192, 0.493);
+  color: white;
+}
+
+.btn-groups button.active {
+  transform: translateY(3px) translate(-2px);
+  box-shadow: -0px 0px 0 rgba(41, 44, 192, 0.493);
+  background-color: var(--blue);
+  color: var(--white);
+}
+.calk {
+  background-color: var(--white);
+  box-shadow: -4px 4px 0 rgba(41, 44, 192, 0.493);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 4px;
+  font-size: 1.3em;
+  color: rgb(53, 53, 119);
+}
+@media (max-width: 500px) {
+  .desc {
+    grid-template-rows: minmax(30px, auto) 1fr;
+  }
+  .calk {
+    font-size: 0.85em;
+  }
+  .btn-groups button {
+    /* padding: 7px 0; */
+    font-size: 70%;
+  }
+  .calk {
+    font-size: 1em;
+  }
+}
+
+.alert {
+  position: absolute;
+  padding: 10px;
+  font-weight: bold;
+  background-color: rgba(233, 133, 62, 0.976);
+  color: rgba(76, 25, 25, 0.786);
+  margin: 10px;
+  border-radius: 7px;
+  backdrop-filter: blur(12px);
+  transition: cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+  box-shadow: -4px 4px 0 rgba(80, 6, 6, 0.582);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+}
+
+.alert i {
+  cursor: pointer;
+}
+
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+  .desc {
+    grid-template-rows: minmax(30px, auto) 1fr;
+  }
+  .calk {
+    font-size: 0.85em;
+  }
+  .btn-groups button {
+    /* padding: 7px 0; */
+    font-size: 60%;
+  }
+}
