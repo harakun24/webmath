@@ -6,70 +6,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="wrapper">
-      <div class="left">
-        <div class="wrapper-left">
+      <div class="control">
+        <div class="banner">
           <img src="./Aset/dice.png" alt="" />
-          <table>
-            <tr>
-              <td><span style="opacity: 0">Terloa</span>Peluang</td>
-              <td>&nbsp;=</td>
-              <td style="opacity: 0">=</td>
-              <td>
-                <b id="peluang"><span>0</span> <span></span><span>36</span></b>
-              </td>
-              <td style="opacity: 0">Peluang</td>
-            </tr>
-          </table>
-          <table>
-            <tr>
-              <td>benar</td>
-              <td>=</td>
-              <td id="benar"><span> ?? dari ??</span></td>
-            </tr>
-            <tr>
-              <td>salah</td>
-              <td>=</td>
-              <td id="salah">??</td>
-            </tr>
-            <tr>
-              <td>terlewatkan</td>
-              <td>=</td>
-              <td id="lewat">??</td>
-            </tr>
-          </table>
-          <button onclick="checkAnswer()">Jawab</button>
-          <button onclick="indexing()">Selanjutnya</button>
+          <h2>Linked Dice</h2>
         </div>
-        <div class="status">
-          <h2>SCORE:</h2>
+        <div class="peluang">
+          peluang<b><span id="peluang">0</span><span>36</span></b>
+        </div>
+        <div class="peluang">
+          kunci jawaban<b><span id="kunci">??</span><span>36</span></b>
+        </div>
+        <div class="sts">
+          <div class="status">
+            <!-- itm -->
+            <span></span>
+            <span>terjawab</span>
+            <div
+              class="color"
+              style="background-color: #46de1c; opacity: 0.9"></div>
+            <span id="benar">0</span>
+            <span></span>
+            <span></span>
+            <!-- itm -->
+            <!-- itm -->
+            <span>terlewat</span>
+            <div
+              class="color"
+              style="
+                background-color: rgba(69, 211, 69, 0.482);
+                opacity: 0.47;
+              "></div>
+            <span id="lewat">0</span>
+            <span></span>
+            <span></span>
+            <!-- itm -->
+            <!-- itm -->
+            <span>salah</span>
+            <div
+              class="color"
+              style="background-color: #f50c0c; opacity: 0.8"></div>
+            <span id="salah">0</span>
+            <span></span>
+            <span></span>
+            <!-- itm -->
+            <!-- itm -->
+            <span>jebakan</span>
+            <div
+              class="color"
+              style="background-color: rgb(239, 114, 114); opacity: 0.7"></div>
+            <span id="jebakan">??</span>
+            <span></span>
+            <span></span>
+            <!-- itm -->
+          </div>
+        </div>
+        <div class="skor">
+          <h3>papan nilai</h3>
           <h4 id="score">0 p</h4>
-          <p id="add">+0 p</p>
-          <button onclick="quit()">Keluar</button>
+          <span id="add">+0 p</span>
+          <button id="jawab" onclick="checkAnswer()">jawab</button>
+          <button id="next" onclick="indexing()">selanjutnya</button>
+        </div>
+        <div class="quit" onclick="quit()">
+          <button>keluar</button>
         </div>
       </div>
-      <div class="right">
-        <h4 id="quest"></h4>
+      <div class="board">
+        <div class="pertanyaan">
+          <h3 id="quest"></h3>
+        </div>
         <div class="inner">
           <h1 class="habis">Selamat Datang</h1>
 
           <button class="reset" onclick="start()">Mulai</button>
         </div>
-      </div>
-    </div>
-    <div class="dialog">
-      <div class="card">
-        <h3>Sudah yakin dengan jawabanmu?</h3>
-        <h1>&#10067;</h1>
-        <!-- <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;jawaban yang dipilih tidak bisa diubah lagi.
-          Jika belum yakin silahkan periksa ulang jawaban
-        </p> -->
-        <button onclick="checkAnswer()">Ya</button>
-        <button onclick="notReady()">Belum</button>
       </div>
     </div>
     <script src="./index.js"></script>
