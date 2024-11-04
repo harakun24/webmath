@@ -264,6 +264,9 @@ function simpanFn() {
 window.onload = function () {
 
     katex.render(`x`, document.querySelector('.ex'))
+    katex.render(`x`, document.querySelectorAll('.ex')[1])
     katex.render(`y`, document.querySelector('.ey'))
+    katex.render(`x`, document.querySelectorAll('.ey')[1])
     katex.render(`z`, document.querySelector('.ez'))
+    katex.render(`x`, document.querySelectorAll('.ez')[1])
 }
