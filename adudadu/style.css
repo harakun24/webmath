@@ -440,14 +440,16 @@ body {
   }
   .peluang {
     grid-column: 1;
-    margin: 0;
-    margin-left: 20px;
+    grid-column: span 2;
+    /* margin: 0; */
+    /* margin-left: 20px; */
     /* font-size: 70%; */
   }
-  .peluang:nth-child(3) {
-    margin: 0;
-    margin-right: 20px;
-    grid-column: 2;
+  .peluang:nth-child(2) {
+    margin-top: 5px;
+    /* margin: 0; */
+    /* margin-right: 20px; */
+    /* grid-column: 2; */
   }
   .sts {
     grid-column: 1;
@@ -467,12 +469,15 @@ body {
     /* gap: 3px; */
     font-size: 70%;
     justify-content: space-around;
+    display: none;
+    /* height: 4px; */
   }
   .banner img {
     width: 20%;
+    /* padding: 10px 0; */
   }
   .inner {
-    width: 42%;
+    width: 50%;
   }
   .board {
     gap: 0px;
@@ -485,5 +490,11 @@ body {
   }
   .inner .habis {
     font-size: 70%;
+  }
+  .skor {
+    font-size: 70%;
+  }
+  .wrapper {
+    grid-template-columns: 1fr 1.5fr;
   }
 }
