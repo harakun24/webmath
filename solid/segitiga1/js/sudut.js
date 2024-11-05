@@ -8,13 +8,13 @@ function aturSudut(t) {
     let sudut = t.value;
     if (t.value > 85) {
         t.value = 80;
-        t.placeholder = t.value + ' °';
+        t.placeholder = t.value + '°';
 
         t.value = ''
         return;
     }
 
-    t.placeholder = sudut + ' °';
+    t.placeholder = sudut + '°';
     t.value = ''
     const newWidth = cariLebar(sudut, segitiga.clientHeight);
     // segitiga.style.height = `${newSize.tinggi}px`;
@@ -51,7 +51,7 @@ function resetSegitiga() {
     document.querySelector('#outH').innerHTML = `30 m<br/> <b class="dpn">Depan</b>`;
     document.querySelector('#outW').innerHTML = `40 mm<br/> <b class="spg">Samping</b>`;
     document.querySelector('#outD').innerHTML = `50 mm<br/> <b class="mrg">Miring</b>`;
-    document.querySelector('#outS').innerHTML = `α 36.87 &deg;`;
+    document.querySelector('#outS').innerHTML = `α 36.87&deg`;
     document.querySelector('.sdtB').innerHTML = 90 - 36.87;
 
     // hitungSudut();

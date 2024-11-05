@@ -114,14 +114,14 @@ function hitungSudut(sdt = false, dst = false) {
     document.querySelector('#outW').innerHTML = `${(widthSegitiga / 4).toFixed(2) * 1} mm&nbsp;<b class="spg">Samping</b>`;
     document.querySelector('#outD').innerHTML = `${(miringSegitiga / 4).toFixed(2) * 1} mm<br/> <b class="mrg">Miring</b>`;
     if (sdt)
-        document.querySelector('#outS').innerHTML = `α = ${sdt} &deg;`;
+        document.querySelector('#outS').innerHTML = `α = ${sdt}&deg`;
     else {
-        document.getElementById('sudut').value = dst ? '36.87 &deg;' : sudut.a;
-        document.querySelector('#outS').innerHTML = `α = ${sudut.a} &deg;`;
+        document.getElementById('sudut').value = dst ? '36.87&deg' : sudut.a;
+        document.querySelector('#outS').innerHTML = `α = ${sudut.a}&deg`;
     }
     document.querySelector('.sdtB').innerHTML = sudut.b;
 
-    // document.querySelector('#outS').innerHTML = `α = ${sudut.a} &deg;`;
+    // document.querySelector('#outS').innerHTML = `α = ${sudut.a}&deg`;
 
 
 }
@@ -147,7 +147,7 @@ function startGame() {
 
 function rotating(t) {
     parents = t.value - 0;
-    t.placeholder = t.value + ' °';
+    t.placeholder = t.value + '°';
     t.value = ''
     console.log(t.value)
     segitiga.style.transition = `.3s`;
