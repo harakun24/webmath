@@ -116,7 +116,9 @@ function hitungSudut(sdt = false, dst = false) {
     if (sdt)
         document.querySelector('#outS').innerHTML = `α = ${sdt}&deg`;
     else {
-        document.getElementById('sudut').value = dst ? '36.87&deg' : sudut.a;
+        // document.getElementById('sudut').value = dst ? '36.87&deg' : sudut.a;
+        document.getElementById('sudut').placeholder = sudut.a + "°";
+
         document.querySelector('#outS').innerHTML = `α = ${sudut.a}&deg`;
     }
     document.querySelector('.sdtB').innerHTML = sudut.b;
