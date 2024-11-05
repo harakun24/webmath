@@ -93,7 +93,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+@media (orientation: landscape) and (max-height: 500px) {
   .desc {
     grid-template-rows: minmax(30px, auto) 1fr;
   }

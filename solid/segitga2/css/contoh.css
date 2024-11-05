@@ -90,15 +90,15 @@
   background-color: aqua;
   width: 0;
 }
-.brick b {
-  /* position: absolute;
+/* .brick b {
+  position: absolute;
   white-space: nowrap;
   top: 50%;
   left: 0;
   transform: translate(-100%) translateY(-50%);
   padding-right: 10px;
-  color: rgba(9, 14, 116, 0.656); */
-}
+  color: rgba(9, 14, 116, 0.656);
+} */
 .line {
   position: absolute;
   height: 40%;
@@ -192,5 +192,12 @@
   .wrapper-obj1 {
     font-size: 80%;
     font-family: poplite;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .examples {
+    width: 85%;
+    height: 90%;
   }
 }

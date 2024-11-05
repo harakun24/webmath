@@ -125,7 +125,7 @@ body {
     grid-template-rows: 35% 1fr 35%;
   }
 }
-@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+@media (orientation: landscape) and (max-height: 500px) {
   .wrapper {
     aspect-ratio: 4/3;
     height: 70%;

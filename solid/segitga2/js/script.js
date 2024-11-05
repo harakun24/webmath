@@ -128,17 +128,17 @@ function hitungSudut(sdt = false) {
     document.querySelector('#outW').innerHTML = `${(widthSegitiga / 4).toFixed(2) * 1} mm <br/><b class="spg">Samping</b>`;
     document.querySelector('#outD').innerHTML = `${(miringSegitiga / 4).toFixed(2) * 1} mm<br/> <b class="mrg">Miring</b>`;
     if (sdt)
-        document.querySelector('#outS').innerHTML = `α = ${sdt} &deg;`;
+        document.querySelector('#outS').innerHTML = `α = ${sdt}&deg;`;
     else {
-        document.getElementById('sudut').placeholder = sudut.a + ' °';
+        document.getElementById('sudut').placeholder = sudut.a + '°';
 
-        document.querySelector('#outS').innerHTML = `α = ${sudut.a} &deg;`;
+        document.querySelector('#outS').innerHTML = `α = ${sudut.a}&deg;`;
     }
     document.getElementById('sudut').value = '';
     document.querySelector('.sdtB').innerHTML = sudut.b;
     document.querySelectorAll('.sectsdt').forEach(itm => {
 
-        itm.innerHTML = `${sudut.a} &deg;`;
+        itm.innerHTML = `${sudut.a}&deg;`;
     })
     document.querySelectorAll('.depanTxt').forEach(itm => {
         itm.innerHTML = (heightSegitiga / 4).toFixed(2) * 1;
@@ -152,7 +152,7 @@ function hitungSudut(sdt = false) {
     document.getElementById('sin').innerHTML = (heightSegitiga / miringSegitiga).toFixed(2) * 1;
     document.getElementById('cos').innerHTML = (widthSegitiga / miringSegitiga).toFixed(2) * 1;
     document.getElementById('tan').innerHTML = (heightSegitiga / widthSegitiga).toFixed(2) * 1;
-    // document.querySelector('#outS').innerHTML = `α = ${sudut.a} &deg;`;
+    // document.querySelector('#outS').innerHTML = `α = ${sudut.a}&deg;`;
 
     document.querySelector('.barMiring').style.height = `${miringSegitiga}px`;
     document.querySelector('.barMiring').style.transform = `rotate(${sudut.b}deg)`;
@@ -181,7 +181,8 @@ function startGame() {
 
 function rotating(t) {
     parents = t.value - 0;
-
+    t.placeholder = parents + "°";
+    t.value = '';
     segitiga.style.transition = `.3s`;
     segitiga.style.transform = `translate(-50%) translateY(-50%) rotate(${parents}deg) `;
     setTimeout(() => {

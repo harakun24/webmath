@@ -10,7 +10,7 @@ function aturSudut(t) {
         t.value = 80;
     }
     let sudut = t.value;
-    t.placeholder = t.value + ' °';
+    t.placeholder = t.value + '°';
     t.value = '';
 
     const newWidth = cariLebar(sudut, segitiga.clientHeight);

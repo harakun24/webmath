@@ -49,6 +49,11 @@
   padding: 0px 8px;
   color: var(--white);
 }
+.ctrl input:focus {
+  border: 1px solid rgba(0, 0, 0, 0.414);
+  color: rgba(0, 0, 0, 0.757);
+  font-weight: bold;
+}
 .content {
   /* background-color: var(--blue); */
   overflow: hidden;
@@ -482,5 +487,48 @@ input::placeholder {
   }
   .trig {
     font-size: 80%;
+  }
+  .page1 {
+    width: 80%;
+  }
+  .page1 .bottom {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80%;
+    margin-left: 10%;
+  }
+  .page1 h3 {
+    margin-top: 0;
+  }
+  .page1 h1 {
+    font-size: 2em;
+  }
+  .dialogPetunjuk .panel {
+    width: 80%;
+    height: 95%;
+  }
+
+  /* asasa */
+
+  .slider {
+    width: 60%;
+    height: 90%;
+    margin-left: 20%;
+  }
+
+  .slide {
+    flex: 1 0 100%;
+    width: 45%;
+    background-color: var(--white);
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    scroll-snap-align: start;
+  }
+  .slide img {
+    width: 55%;
   }
 }
