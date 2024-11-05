@@ -96,8 +96,8 @@ function indexing() {
     score = localStorage.getItem('scoredadu') - 0 || 0;
     level = localStorage.getItem('leveldadu') - 0 || 0;
 
-    // if (counter > 4 + (level * 5)) {
-    if (counter > 2) {
+    if (counter > 4 + (level * 5)) {
+        // if (counter > 2) {
 
         localStorage.setItem('leveldadu', level);
         quest.innerHTML = ``;
