@@ -461,3 +461,26 @@ label b {
     /* width: fit-content; */
   }
 }
+
+input::placeholder {
+  color: white;
+  opacity: 0.9;
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .page2 {
+    width: 90%;
+    height: 100%;
+    aspect-ratio: 9/10;
+  }
+  .page2 .bottom {
+    padding-top: 10px;
+    /* font-size: 80%; */
+  }
+  .page2 .section {
+    padding-top: 10px;
+  }
+  .trig {
+    font-size: 80%;
+  }
+}

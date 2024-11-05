@@ -130,9 +130,11 @@ function hitungSudut(sdt = false) {
     if (sdt)
         document.querySelector('#outS').innerHTML = `α = ${sdt} &deg;`;
     else {
-        document.getElementById('sudut').value = sudut.a;
+        document.getElementById('sudut').placeholder = sudut.a + ' °';
+
         document.querySelector('#outS').innerHTML = `α = ${sudut.a} &deg;`;
     }
+    document.getElementById('sudut').value = '';
     document.querySelector('.sdtB').innerHTML = sudut.b;
     document.querySelectorAll('.sectsdt').forEach(itm => {
 

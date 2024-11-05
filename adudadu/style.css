@@ -469,7 +469,7 @@ body {
     /* gap: 3px; */
     font-size: 70%;
     justify-content: space-around;
-    display: none;
+    /* display: none; */
     /* height: 4px; */
   }
   .banner img {

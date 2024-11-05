@@ -7,9 +7,11 @@ function cariTinggi(sudut, lebar) {
 function aturSudut(t) {
 
     if (t.value > 85) {
-        t.value = 80; return;
+        t.value = 80;
     }
     let sudut = t.value;
+    t.placeholder = t.value + ' °';
+    t.value = '';
 
     const newWidth = cariLebar(sudut, segitiga.clientHeight);
     // segitiga.style.height = `${newSize.tinggi}px`;

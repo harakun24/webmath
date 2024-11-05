@@ -100,7 +100,7 @@ function rotateDiv(en) {
 }
 let parents = 0;
 
-function hitungSudut(sdt = false) {
+function hitungSudut(sdt = false, dst = false) {
     let widthSegitiga = segitiga.clientWidth - 0;
     let heightSegitiga = segitiga.clientHeight - 0;
     let miringSegitiga = Math.sqrt((widthSegitiga * widthSegitiga) + (heightSegitiga * heightSegitiga));
@@ -116,7 +116,7 @@ function hitungSudut(sdt = false) {
     if (sdt)
         document.querySelector('#outS').innerHTML = `α = ${sdt} &deg;`;
     else {
-        document.getElementById('sudut').value = sudut.a;
+        document.getElementById('sudut').value = dst ? '36.87 &deg;' : sudut.a;
         document.querySelector('#outS').innerHTML = `α = ${sudut.a} &deg;`;
     }
     document.querySelector('.sdtB').innerHTML = sudut.b;
@@ -125,7 +125,7 @@ function hitungSudut(sdt = false) {
 
 
 }
-hitungSudut();
+hitungSudut(false);
 
 document.querySelectorAll('.control-nav a').forEach(item => {
     item.onclick = function () {
@@ -147,7 +147,9 @@ function startGame() {
 
 function rotating(t) {
     parents = t.value - 0;
-
+    t.placeholder = t.value + ' °';
+    t.value = ''
+    console.log(t.value)
     segitiga.style.transition = `.3s`;
     segitiga.style.transform = `translate(-50%) translateY(-50%) rotate(${parents}deg) `;
     setTimeout(() => {

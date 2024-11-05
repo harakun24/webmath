@@ -5,12 +5,17 @@ function cariTinggi(sudut, lebar) {
     return lebar * Math.tan(sudut * (Math.PI / 180))
 }
 function aturSudut(t) {
-
-    if (t.value > 85) {
-        t.value = 80; return;
-    }
     let sudut = t.value;
+    if (t.value > 85) {
+        t.value = 80;
+        t.placeholder = t.value + ' °';
 
+        t.value = ''
+        return;
+    }
+
+    t.placeholder = sudut + ' °';
+    t.value = ''
     const newWidth = cariLebar(sudut, segitiga.clientHeight);
     // segitiga.style.height = `${newSize.tinggi}px`;
 
