@@ -96,7 +96,8 @@ function indexing() {
     score = localStorage.getItem('scoredadu') - 0 || 0;
     level = localStorage.getItem('leveldadu') - 0 || 0;
 
-    if (counter > 4 + (level * 5)) {
+    // if (counter > 4 + (level * 5)) {
+    if (counter > 2) {
 
         localStorage.setItem('leveldadu', level);
         quest.innerHTML = ``;
@@ -364,4 +365,8 @@ if (level > 0)
 if (level == 9999)
     level--;
 
-localStorage.setItem('leveldadu', 9998)
+
+if (level > 9997)
+    document.querySelector('.inner').innerHTML = `<h4 class="habis"><span style="font-size:120%">Game telah Tamat!</span><br/><span id="rate" style="font-size:350%">
+        ${Array(5).fill(0).map(e => '&#9733;').join('')}
+        </span><br/> <span style="font-size:100%">Anda memang gamer sejati! Usaha anda patut diapresiasi...</span></h4 ><div class='btn-reset'><button class="reset" onclick="quit()" > Ulangi lv. 1 </button ><button class="reset" onclick="quit(true)" > Keluar </button ></div>`;
