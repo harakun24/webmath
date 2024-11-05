@@ -17,9 +17,7 @@ function clicked(t, x, y) {
     setTimeout(() => {
         colHat.style.transform = 'translateY(0px)';
         rowHat.style.transform = 'translate(0px)';
-        console.log(rowHat)
     }, 500)
-    console.log({ x, y })
     chanceChange(t, x, y)
 }
 // black start 9733, white 9734
@@ -34,6 +32,7 @@ let counter;
 let currentCondition;
 let totalBenar = 0;
 let cleanBenar = 0;
+let level = localStorage.getItem('leveldadu') - 0 || 0;
 
 const condition = [
     'jumlahnya kurang dari', // kurang dari
@@ -72,7 +71,7 @@ function randomized() {
     else
         val = Math.floor(Math.random() * 12)
     const redundant = Math.floor(Math.random() * 100) % 2;
-    console.log(redundant)
+
     if (redundant == 0) {
         let val2;
         let index2 = Math.floor(Math.random() * (condition.length));
@@ -95,28 +94,32 @@ function randomized() {
 function indexing() {
     counter = localStorage.getItem('counterdadu') - 0 || 0;
     score = localStorage.getItem('scoredadu') - 0 || 0;
-    if (counter > 20) {
+    level = localStorage.getItem('leveldadu') - 0 || 0;
+
+    if (counter > 4 + (level * 5)) {
+
+        localStorage.setItem('leveldadu', level);
         quest.innerHTML = ``;
         document.querySelectorAll('.wrapper-left button').forEach(item => {
             item.remove();
         });
         const stars = Math.ceil((cleanBenar / totalBenar) * 5);
         let indexStars = 0;
-        console.log(stars)
         document.querySelector('.inner').innerHTML = `<h4 class="habis"><span style="font-size:120%">Selamat! Kamu telah berhasil memahami ruang sampel dengan baik!</span><br/><span id="rate" style="font-size:350%">
         ${Array(5).fill(0).map(e => indexStars++ < stars ? '&#9733;' : '&#9734;').join('')}
-        </span><br/> <span style="font-size:100%">total jawaban benar ${cleanBenar} dari ${totalBenar}</span></h4 ><button class="reset" onclick="reset()" > Ulangi</button >`;
+        </span><br/> <span style="font-size:100%">total jawaban benar ${cleanBenar} dari ${totalBenar}</span></h4 ><div class='btn-reset'><button class="reset" onclick="reset()" > Ulangi level </button ><button class="reset" onclick="reset(true)" > Naik level </button ></div>`;
 
         localStorage.setItem('gameStart', false);
         return;
     }
+    console.log({ level: level++ })
+    document.querySelector(".banner h2").innerHTML = `Level ${level}`;
     document.querySelectorAll('.skor button')[1].style.display = 'none';
     document.querySelectorAll('.skor button')[0].style.display = 'block';
 
     document.querySelector('#score').innerHTML = `${score} p`
     const r = randomized();
     currentCondition = r;
-    console.log(r)
     let strText = `${counter + 1}. Peluang ${condition[r.index]} ${r.index < 4 ? r.val : ''}`;
     if (r.val2)
         strText += ` atau ${condition[r.index2]} ${r.index2 < 4 ? r.val2 : ''}`
@@ -213,13 +216,11 @@ function checkAnswer() {
     let arrAnswer = (mappingDice(currentCondition.val, currentCondition.index));
     if (currentCondition.val2 != null)
         arrAnswer = [...arrAnswer, ...mappingDice(currentCondition.val2, currentCondition.index2)];
-    console.log(arrAnswer);
+
     for (const item of arrAnswer) {
         const el = document.querySelector(`.row:nth-child(${item.A + 1}) .box:nth-child(${item.B + 1})`);
-        // el.classList.add('yellow');
-        // el.innerHTML = `${item.A} | ${item.B}`;
+
         if (!el.classList.contains('yellow') && !el.classList.contains('green')) {
-            // el.innerHTML = "&#9873;";
             el.innerHTML = "&#10003;";
             el.classList.add('flag');
         }
@@ -309,9 +310,13 @@ function mappingDice(val, index) {
 }
 // indexing();
 
-function reset() {
-    if (confirm('Poin akan direset kembali menjadi 0, Lanjut?')) {
+function reset(status = false) {
+    console.log(level);
+    let sttr = status ? '+5 Soal untuk level berikutnya, Lanjut?' : 'Soal akan dimulai dari awal, Lanjut?'
+    if (confirm(sttr)) {
         // start();
+        if (status)
+            localStorage.setItem('leveldadu', ++level)
         document.location.reload()
     }
     else
@@ -319,8 +324,6 @@ function reset() {
 }
 
 function isAnswer() {
-
-
     document.querySelector('.dialog').style.display = 'grid';
     document.querySelector('.card').style.transform = 'scale(0%)';
     setTimeout(() => {
@@ -346,22 +349,19 @@ if (localStorage.getItem('gameStart') == 'true')
     indexing();
 
 function quit() {
-    if (confirm('yakin ingin keluar? Skor akan hilang jika melanjutkan')) {
-        // document.querySelector('.right').innerHTML = `
-        //  <h4 id="quest">Permainan belum dimulai</h4>
-        // <div class="inner">
-        //   <h1 class="habis">Selamat Datang</h1>
-
-        //   <button class="reset" onclick="start()">Mulai</button>
-        // </div>
-        // `;
-        // peluang.innerHTML = '??/36 (??%)';
-        // benar.innerText = "??/??";
-        // salah.innerText = ""
+    if (confirm('yakin ingin keluar? Level anda akan direset')) {
         localStorage.setItem('gameStart', false);
-        // localStorage.setItem('scoredadu', 0);
+        localStorage.setItem('leveldadu', 0);
+
+        // level = 0;
 
         document.location.reload();
     }
 }
 
+if (level > 0)
+    document.querySelector('.habis').innerHTML = `Level ${level + 1}`
+if (level == 9999)
+    level--;
+
+localStorage.setItem('leveldadu', 9998)
