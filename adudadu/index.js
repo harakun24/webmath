@@ -95,7 +95,7 @@ function randomized() {
 function indexing() {
     counter = localStorage.getItem('counterdadu') - 0 || 0;
     score = localStorage.getItem('scoredadu') - 0 || 0;
-    if (counter > 3) {
+    if (counter > 20) {
         quest.innerHTML = ``;
         document.querySelectorAll('.wrapper-left button').forEach(item => {
             item.remove();
