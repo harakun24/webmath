@@ -136,7 +136,7 @@ body {
     height: fit-content;
   }
   .btn-group {
-    grid-template-rows: 5% 1fr 5%;
+    grid-template-rows: 25% 1fr 25%;
     font-size: 50%;
   }
   .btn-group button span {

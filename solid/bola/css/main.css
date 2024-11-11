@@ -319,6 +319,9 @@ button.sync {
     width: 40%;
     margin-top: 20%;
   }
+  .btnz b {
+    padding: 4px 0px;
+  }
   .berat span {
     font-size: 70%;
   }
