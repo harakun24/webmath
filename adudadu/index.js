@@ -1,24 +1,38 @@
+let statusClick = true;
 function clicked(t, x, y) {
-    if (t.classList.contains('yellow')) {
-        t.classList.remove('yellow')
-        t.innerText = ``;
-        t.style.transform = "rotateY(0deg)";
+    if (statusClick) {
+        statusClick = false;
+
+        if (t.classList.contains('yellow')) {
+            t.classList.remove('yellow')
+            t.innerText = ``;
+            t.style.transform = "rotateY(0deg)";
+        }
+        else {
+            t.classList.add('yellow')
+            t.innerText = `( ${x} , ${y} )`;
+            // t.innerText = ``;
+            t.style.transform = "rotateY(360deg)";
+        }
+        const rowHat = document.querySelector(`.row:nth-child(${x + 1}) .box:nth-child(1)`);
+        const colHat = document.querySelector(`.row:nth-child(1) .box:nth-child(${y + 1})`);
+        rowHat.querySelector('img').src = `./Aset/merah${x}.png`;
+        colHat.querySelector('img').src = `./Aset/merah${y}.png`;
+        rowHat.style.transform = 'translate(-14px)';
+        colHat.style.transform = 'translateY(-14px)';
+        setTimeout(() => {
+            colHat.style.transform = 'translateY(0px)';
+            rowHat.style.transform = 'translate(0px)';
+            setTimeout(() => {
+                rowHat.querySelector('img').src = `./Aset/putih${x}.png`;
+                colHat.querySelector('img').src = `./Aset/putih${y}.png`;
+                statusClick = true;
+            }, 300)
+        }, 300)
+        chanceChange(t, x, y)
     }
-    else {
-        t.classList.add('yellow')
-        t.innerText = `( ${x} , ${y} )`;
-        // t.innerText = ``;
-        t.style.transform = "rotateY(360deg)";
-    }
-    const rowHat = document.querySelector(`.row:nth-child(${x + 1}) .box:nth-child(1)`);
-    const colHat = document.querySelector(`.row:nth-child(1) .box:nth-child(${y + 1})`);
-    rowHat.style.transform = 'translate(-14px)';
-    colHat.style.transform = 'translateY(-14px)';
-    setTimeout(() => {
-        colHat.style.transform = 'translateY(0px)';
-        rowHat.style.transform = 'translate(0px)';
-    }, 500)
-    chanceChange(t, x, y)
+
+
 }
 // black start 9733, white 9734
 const quest = document.querySelector('#quest');
@@ -104,17 +118,19 @@ function indexing() {
         document.querySelectorAll('.wrapper-left button').forEach(item => {
             item.remove();
         });
-        const stars = Math.ceil((cleanBenar / totalBenar) * 5);
+        const stars = Math.ceil(score / (counter * 10) * 5);
         let indexStars = 0;
-        document.querySelector('.inner').innerHTML = `<h4 class="habis"><span style="font-size:120%">Selamat! Kamu telah berhasil memahami ruang sampel dengan baik!</span><br/><span id="rate" style="font-size:350%">
+        let msgHeader = stars > 3 ? 'Selamat! poin mencukupi untuk bisa naik level!' : stars > 0 ? 'Poin belum mencukupi untuk naik level... ulangi untuk mengumpulkan lebih banyak poin' : 'Jangan patah semangat! coba lagi... :)';
+        let msgBtn = stars > 3 ? '<button class="reset" onclick="reset()" > Ulangi level </button ><button class="reset" onclick="reset(true)" > Naik level </button >' : '<button class="reset" onclick="reset()" style="opacity:0"> Ulangi level </button ><button class="reset" onclick="reset()" > Ulangi level </button >';
+
+        document.querySelector('.inner').innerHTML = `<h4 class="habis">${msgHeader}<span style="font-size:120%"></span><br/><span id="rate" style="font-size:350%">
         ${Array(5).fill(0).map(e => indexStars++ < stars ? '&#9733;' : '&#9734;').join('')}
-        </span><br/> <span style="font-size:100%">total jawaban benar ${cleanBenar} dari ${totalBenar}</span></h4 ><div class='btn-reset'><button class="reset" onclick="reset()" > Ulangi level </button ><button class="reset" onclick="reset(true)" > Naik level </button ></div>`;
+        </span><br/> <span style="font-size:100%">Total poin : ${score} dari ${counter * 10} p</span></h4 ><div class='btn-reset'>${msgBtn}</div>`;
 
         localStorage.setItem('gameStart', false);
         return;
     }
-    console.log({ level: level++ })
-    document.querySelector(".banner h2").innerHTML = `Level ${level}`;
+    document.querySelector(".banner h2").innerHTML = `Level ${level + 1}`;
     document.querySelectorAll('.skor button')[1].style.display = 'none';
     document.querySelectorAll('.skor button')[0].style.display = 'block';
 
@@ -257,7 +273,9 @@ function checkAnswer() {
     cleanBenar += answer.benar;
     kunci.innerHTML = `${answer.all}`;
     jebakan.innerHTML = `${36 - answer.all}`;
-    let currentScore = (answer.benar * 10) - (answer.salah * 5);
+    // let currentScore = (answer.benar * 10) - (answer.salah * 5);
+    // let currentScore = answer.salah < 1 ? (answer.all - answer.benar < 1 ? 10 : 0) : 0;
+    let currentScore = Math.ceil(answer.benar / answer.all * 10) - Math.ceil(answer.salah / 36 * 3);
 
     // if (currentScore > 0)
     score += currentScore;
@@ -312,7 +330,6 @@ function mappingDice(val, index) {
 // indexing();
 
 function reset(status = false) {
-    console.log(level);
     let sttr = status ? '+5 Soal untuk level berikutnya, Lanjut?' : 'Soal akan dimulai dari awal, Lanjut?'
     if (confirm(sttr)) {
         // start();
@@ -320,8 +337,6 @@ function reset(status = false) {
             localStorage.setItem('leveldadu', ++level)
         document.location.reload()
     }
-    else
-        console.log('cancel reset');
 }
 
 function isAnswer() {
