@@ -115,3 +115,39 @@ document.querySelectorAll('.button-dock button').forEach(e => {
         })
     })
 })
+
+const closeBtn = document.querySelector('.answer button');
+
+closeBtn.addEventListener('click', (e) => {
+    closeBtn.classList.add('active');
+    setTimeout(() => {
+        closeBtn.classList.remove('active');
+        setTimeout(() => {
+            document.querySelector('.answer').style.display = 'none';
+        }, 100)
+    }, 500)
+})
+
+function checkAnswer() {
+    const btnGroup = document.querySelectorAll('.button-dock button');
+    if (!document.querySelector('.button-dock .active'))
+        return alert('null')
+
+    document.querySelector('.answer').style.display = 'grid';
+    if (btnGroup[0].classList.contains('active')) {
+        document.querySelector('.answer h2').innerHTML = 'Selamat! Kamu memahami sisi segitiga siku-siku';
+        document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Tali layangan merupakan sisi terpanjang pada segitiga yang terbentuk. Karena itu, tali layangan adalah sisi miring.';
+    }
+    else {
+        document.querySelector('.answer h2').innerHTML = 'Sayang sekali! Jawaban kamu belum tepat.';
+        document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Coba cermati kembali gambar yang disajikan. Kemudian silahkan jawab kembali!';
+    }
+}
+
+function closeKesimpulan() {
+    document.querySelector('.kesimpulan').style.display = 'none';
+}
+function openKesimpulan() {
+    tutupMenu();
+    document.querySelector('.kesimpulan').style.display = 'grid';
+}
