@@ -39,7 +39,7 @@
     <div class="bcover">
       <div class="ccover" onclick="tutupMenu()"></div>
       <div class="setting">
-        <div class="itm">Kesimpulan</div>
+        <div class="itm" onclick="openKesimpulan()">Kesimpulan</div>
         <div class="itm" onclick="showContoh()">Contoh</div>
         <div class="itm" onclick="resetSegitiga()">Reset</div>
         <div
@@ -222,8 +222,13 @@
       </div>
     </div>
     <div class="kesimpulan">
+      <div class="ncover" onclick="closeKesimpulan()"></div>
       <div class="qcard">
-        <h4>Menampilkan rangkuman singkat dan contoh uji pemahaman siswa</h4>
+        <h4>
+          <button onclick="closeKesimpulan()">tutup</button>
+          <br />
+          Menampilkan rangkuman singkat dan contoh uji pemahaman siswa
+        </h4>
         <p>
           Segitiga siku-siku adalah segitiga yang memiliki satu sudut siku-siku
           (90°). Segitiga siku-siku memiliki tiga sisi utama sisi miring, sisi
@@ -236,16 +241,26 @@
           <img src="./assets/Layangan.png" alt="" class="kite" />
         </div>
         <p>
-          Pada gambar di atas, bagian tali layang-layang yang menghubungkan
-          tangan anak dengan layang-layang merupakan:
+          Pada gambar di atas, bagian <b> tali layang-layang</b> yang
+          menghubungkan tangan anak dengan layang-layang merupakan:
         </p>
         <div class="button-dock">
           <button>A. Sisi miring</button>
           <button>B. Sisi depan</button>
           <button>C. Sisi samping</button>
           <button>D. Tidak dapat ditentukan</button>
-          <button class="submit">Periksa jawaban</button>
+          <button class="submit" onclick="checkAnswer()">
+            Periksa jawaban
+          </button>
         </div>
+      </div>
+      <div class="answer">
+        <!-- <h1>&#9785;</h1> -->
+        <h1>&#9786;</h1>
+        <span></span>
+        <h2>Jawaban belum tepat!</h2>
+        <p>coba pilih jawaban yang lain...</p>
+        <button>tutup</button>
       </div>
     </div>
     <script src="./js/script.js"></script>
