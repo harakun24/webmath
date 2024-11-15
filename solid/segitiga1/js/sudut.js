@@ -119,21 +119,25 @@ document.querySelectorAll('.button-dock button').forEach(e => {
 const closeBtn = document.querySelector('.answer button');
 
 closeBtn.addEventListener('click', (e) => {
-    closeBtn.classList.add('active');
+    document.querySelector('.answer').style.transform = 'scale(0) translate(-200%) rotateY(0deg)';
+    document.querySelector('.wrapper-answer').style.opacity = 0;
     setTimeout(() => {
-        closeBtn.classList.remove('active');
-        setTimeout(() => {
-            document.querySelector('.answer').style.display = 'none';
-        }, 100)
+        document.querySelector('.wrapper-answer').style.display = 'none';
     }, 500)
 })
 
 function checkAnswer() {
     const btnGroup = document.querySelectorAll('.button-dock button');
     if (!document.querySelector('.button-dock .active'))
-        return alert('null')
+        return console.log('null')
 
-    document.querySelector('.answer').style.display = 'grid';
+    document.querySelector('.wrapper-answer').style.opacity = 1;
+    document.querySelector('.answer').style.transform = 'scale(0) translate(200%)';
+    document.querySelector('.wrapper-answer').style.display = 'grid';
+    setTimeout(() => {
+        document.querySelector('.answer').style.transform = 'scale(1) translate(0) rotateY(0deg)';
+        // document.querySelector('.answer').style.opacity = 1;
+    }, 500)
     if (btnGroup[0].classList.contains('active')) {
         document.querySelector('.answer h2').innerHTML = 'Selamat! Kamu memahami sisi segitiga siku-siku';
         document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Tali layangan merupakan sisi terpanjang pada segitiga yang terbentuk. Karena itu, tali layangan adalah sisi miring.';
@@ -145,9 +149,20 @@ function checkAnswer() {
 }
 
 function closeKesimpulan() {
-    document.querySelector('.kesimpulan').style.display = 'none';
+    document.querySelector('.qcard').style.opacity = 0;
+    document.querySelector('.qcard').style.transform = 'scale(0) translateY(-200%)';
+    setTimeout(() => {
+        document.querySelector('.kesimpulan').style.display = 'none';
+    }, 500)
 }
 function openKesimpulan() {
     tutupMenu();
     document.querySelector('.kesimpulan').style.display = 'grid';
+    document.querySelector('.qcard').style.opacity = 0;
+    document.querySelector('.qcard').style.transform = 'scale(0) translateY(200%)';
+    setTimeout(() => {
+        document.querySelector('.qcard').style.opacity = 1;
+        document.querySelector('.qcard').style.transform = 'scale(1) translateY(0)';
+
+    }, 200)
 }
