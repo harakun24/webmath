@@ -69,7 +69,7 @@
 
 .qcard {
   height: 90%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 8/6;
   background-color: white;
   display: grid;
   /* border-radius: 8px; */
@@ -81,11 +81,19 @@
   z-index: 2;
 }
 
+.two-sided {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  /* background-color: rgb(0, 225, 255); */
+  grid-template-rows: 1fr auto;
+}
 .wrapper-conclude {
   width: 80%;
   aspect-ratio: 1;
   background: rgba(118, 163, 235, 0.572);
   position: relative;
+  grid-column: 1;
 }
 .wrapper-conclude .orang {
   position: absolute;
@@ -128,6 +136,12 @@
   gap: 15px;
   padding: 5px;
   box-sizing: border-box;
+  grid-column: 2;
+  grid-row: 1/2;
+  align-self: center;
+}
+.text-quest {
+  grid-column: 1;
 }
 .button-dock button {
   cursor: pointer;
@@ -233,6 +247,8 @@ h4 button {
   cursor: pointer;
   transition: cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
   font-weight: bold;
+  margin-bottom: 12px;
+  font-size: 110%;
 }
 h4 button:hover {
   background-color: rgb(238, 34, 71);
@@ -247,11 +263,26 @@ h4 button:hover {
   .answer {
     height: 60%;
   }
+  .two-sided {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto;
+  }
+  .wrapper-conclude {
+    grid-column: 1;
+  }
+  .text-quest {
+    grid-row: 2;
+  }
+  .button-dock {
+    grid-column: 1;
+    grid-row: 3;
+    align-self: self-start;
+  }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
   .qcard {
-    height: 90%;
-    width: 40%;
+    height: 85%;
+    width: 70%;
   }
 }
