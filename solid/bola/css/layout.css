@@ -32,10 +32,15 @@
   color: var(--blue);
   transition: cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
 }
-
+.btn-groups button:nth-last-child(1) {
+  background-color: rgb(244, 36, 57);
+  color: white;
+  border: 2px solid rgb(99, 9, 9);
+}
 .btn-groups button:hover {
   background-color: rgba(41, 44, 192, 0.493);
   color: white;
+  border: 2px solid var(--blue);
 }
 
 .btn-groups button.active {
@@ -64,7 +69,7 @@
     font-size: 0.85em;
   }
   .btn-groups button {
-    /* padding: 7px 0; */
+    /* padding: 170px 0; */
     font-size: 70%;
   }
   .calk {
