@@ -24,7 +24,7 @@
       <h1>Simulasi Sistem Persamaan Linear</h1>
       <div class="btn-group">
         <button class="petunjuk">
-          Petunjuk <span><i class="fa fa-lightbulb"></i></span></button
+          Latihan Soal <span><i class="fa fa-lightbulb"></i></span></button
         ><button class="mulai" onclick="gameStart()">
           Mulai <span><i class="fa fa-play"></i></span>
         </button>
@@ -101,9 +101,11 @@
             <span>Bersihkan </span>
             <i class="fa fa-trash-alt fa-lg"></i>
           </button>
-          <button style="grid-column: span 2; grid-row: 4">
-            <span> Pertanyaan </span>
-            <i class="fa fa-question fa-lg"></i>
+          <button
+            style="grid-column: span 2; grid-row: 4"
+            onclick="if(confirm('apakah anda yakin ingin keluar simulasi?'))document.location.reload();">
+            <span> Keluar</span>
+            <i class="fa fa-power-off fa-lg"></i>
           </button>
         </div>
       </div>
