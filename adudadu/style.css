@@ -527,3 +527,42 @@ body {
     grid-template-columns: 1fr 1.5fr;
   }
 }
+
+@media (min-width: 700px) and (orientation: portrait) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .control {
+    grid-row: 2;
+  }
+  .board {
+    grid-row: 1;
+  }
+  .banner img {
+    width: 15%;
+  }
+  .sts {
+    grid-column: 1;
+    margin: 0px;
+    margin-left: 20px;
+  }
+  .skor {
+    margin: 0px;
+    margin-right: 20px;
+    grid-column: 2;
+  }
+  .peluang {
+    grid-column: 1;
+    margin: 0;
+    margin-left: 20px;
+  }
+  .peluang:nth-child(3) {
+    margin: 0;
+    margin-right: 20px;
+    grid-column: 2;
+  }
+  .quit {
+    grid-row: 4/6;
+  }
+}
