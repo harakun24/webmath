@@ -27,8 +27,8 @@ function clicked(t, x, y) {
                 rowHat.querySelector('img').src = `./Aset/putih${x}.png`;
                 colHat.querySelector('img').src = `./Aset/putih${y}.png`;
                 statusClick = true;
-            }, 300)
-        }, 300)
+            }, 200)
+        }, 100)
         chanceChange(t, x, y)
     }
 
