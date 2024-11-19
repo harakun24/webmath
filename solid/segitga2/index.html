@@ -39,7 +39,7 @@
     <div class="bcover">
       <div class="ccover" onclick="tutupMenu()"></div>
       <div class="setting">
-        <div class="itm">Kesimpulan</div>
+        <div class="itm" onclick="openKesimpulan()">Kesimpulan</div>
         <div class="itm" onclick="showContoh()">Contoh</div>
         <div class="itm" onclick="resetSegitiga()">Reset</div>
         <div
@@ -224,116 +224,34 @@
       <div class="examples">
         <div class="ex">
           <div class="ex-1" id="ex-1">
-            <div class="wall">
-              <div class="title">Anak Kecil</div>
-              <div class="wrapper-obj1">
-                <img src="./assets/tenis.png" alt="" />
-                <div class="obj1"></div>
-                <div class="ddiag"></div>
-                <div class="ground">
-                  <span>200 cm</span>
-                </div>
-                <div class="brick">
-                  <b style="display: none">200 cm</b>
-                  <img src="./assets/anak.png" alt="" />
-                </div>
-              </div>
-              <div class="line">
-                <span>114 cm</span>
-              </div>
+            <div class="pict">
+              <img src="./assets/contoh-1.png" alt="" />
             </div>
             <div class="txt">
               <div class="dial">
-                <p>Elemen-elemen dalam gambar adalah:</p>
                 <ul>
-                  <li><b>Tinggi orang</b> : Sisi tegak segitiga siku-siku.</li>
+                  <li><b> Sisi miring :</b> Panjang tangga.</li>
                   <li>
-                    <b>Jarak pengamat ke objek</b> : Sisi mendatar segitiga
-                    siku-siku.
+                    <b> Sisi depan :</b> Tinggi dinding yang dicapai oleh
+                    tangga.
                   </li>
                   <li>
-                    <b>Garis pandang</b> : Sisi miring segitiga siku-siku.
-                  </li>
-                  <li>
-                    <b> Sudut</b> : Sudut yang dibentuk antara garis pandang
-                    dengan horizontal.
+                    <b> Sisi samping :</b> Jarak antara kaki tangga dan dinding.
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="ex-1" id="ex-2">
-            <div class="wall">
-              <div class="title">Remaja</div>
-              <div class="wrapper-obj1">
-                <img src="./assets/tenis.png" alt="" />
-                <div class="obj1"></div>
-                <div class="ddiag"></div>
-                <div class="ground"></div>
-                <div class="brick">
-                  <b style="display: none">200 cm</b>
-                  <img src="./assets/remaja.png" alt="" />
-                </div>
-              </div>
-              <div class="line">
-                <span>148 cm</span>
-              </div>
+            <div class="pict">
+              <img src="./assets/contoh-1.png" alt="" />
             </div>
             <div class="txt">
               <div class="dial">
-                <p>Elemen-elemen dalam gambar adalah:</p>
                 <ul>
-                  <li><b>Tinggi orang</b> : Sisi tegak segitiga siku-siku.</li>
-                  <li>
-                    <b>Jarak pengamat ke objek</b> : Sisi mendatar segitiga
-                    siku-siku.
-                  </li>
-                  <li>
-                    <b>Garis pandang</b> : Sisi miring segitiga siku-siku.
-                  </li>
-                  <li>
-                    <b> Sudut</b> : Sudut yang dibentuk antara garis pandang
-                    dengan horizontal.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="ex-1" id="ex-3">
-            <div class="wall">
-              <div class="title">Orang Dewasa</div>
-              <div class="wrapper-obj1">
-                <img src="./assets/tenis.png" alt="" />
-                <div class="obj1"></div>
-                <div class="ddiag"></div>
-                <div class="ground">
-                  <span>305 cm</span>
-                </div>
-                <div class="brick">
-                  <b style="display: none">200 cm</b>
-                  <img src="./assets/dewasa.png" alt="" />
-                </div>
-              </div>
-              <div class="line">
-                <span></span>
-              </div>
-            </div>
-            <div class="txt">
-              <div class="dial">
-                <p>Elemen-elemen dalam gambar adalah:</p>
-                <ul>
-                  <li><b>Tinggi orang</b> : Sisi tegak segitiga siku-siku.</li>
-                  <li>
-                    <b>Jarak pengamat ke objek</b> : Sisi mendatar segitiga
-                    siku-siku.
-                  </li>
-                  <li>
-                    <b>Garis pandang</b> : Sisi miring segitiga siku-siku.
-                  </li>
-                  <li>
-                    <b> Sudut</b> : Sudut yang dibentuk antara garis pandang
-                    dengan horizontal.
-                  </li>
+                  <li>Sisi miring: Panjang tangga.</li>
+                  <li>Sisi depan: Tinggi dinding yang dicapai oleh tangga.</li>
+                  <li>Sisi samping: Jarak antara kaki tangga dan dinding.</li>
                 </ul>
               </div>
             </div>
@@ -342,7 +260,53 @@
         <div class="control-nav">
           <a href="#ex-1"><span>1</span></a>
           <a href="#ex-2"><span>2</span></a>
-          <a href="#ex-3"><span>3</span></a>
+        </div>
+      </div>
+    </div>
+    <div class="kesimpulan">
+      <div class="ncover" onclick="closeKesimpulan()"></div>
+      <div class="ncover" onclick="closeKesimpulan()"></div>
+      <div class="qcard">
+        <h4>
+          <button onclick="closeKesimpulan()">&#10005;</button>
+          <br />
+          Menampilkan rangkuman singkat dan contoh uji pemahaman siswa
+        </h4>
+        <p>
+          Segitiga siku-siku adalah segitiga yang memiliki satu sudut siku-siku
+          (90°). Segitiga siku-siku memiliki tiga sisi utama sisi miring, sisi
+          depan, dan sisi samping
+        </p>
+        <h4>Uji Pemahaman</h4>
+        <div class="two-sided">
+          <div class="wrapper-conclude">
+            <img src="./assets/compact.png" class="orang" alt="" />
+            <div class="tri-gl"></div>
+            <img src="./assets/Layangan.png" alt="" class="kite" />
+          </div>
+          <p class="text-quest">
+            &nbsp;&nbsp;&nbsp;&nbsp; Pada gambar di atas, bagian
+            <b> tali layang-layang</b> yang menghubungkan tangan anak dengan
+            layang-layang merupakan...
+          </p>
+          <div class="button-dock">
+            <button>A. Sisi miring</button>
+            <button>B. Sisi depan</button>
+            <button>C. Sisi samping</button>
+            <button>D. Tidak dapat ditentukan</button>
+            <button class="submit" onclick="checkAnswer()">
+              Periksa jawaban
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-answer">
+        <div class="answer">
+          <!-- <h1>&#9785;</h1> -->
+          <h1>&#9786;</h1>
+          <h2>Jawaban belum tepat!</h2>
+          <p>coba pilih jawaban yang lain...</p>
+          <button>&#10005;</button>
         </div>
       </div>
     </div>

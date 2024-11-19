@@ -5,7 +5,7 @@
   width: 100%;
   height: 100%;
   display: none;
-  opacity: 0;
+  /* opacity: 0; */
   transition: ease-in-out 0.3s;
 }
 .contohback {
@@ -16,10 +16,10 @@
 }
 .examples {
   position: absolute;
-  /* height: 80%; */
-  aspect-ratio: 1.3;
-  max-height: 80%;
+  /* aspect-ratio: 1.3; */
+  height: 80%;
   width: 90%;
+  max-width: 640px;
   background: var(--white);
   top: 50%;
   left: 50%;
@@ -31,242 +31,62 @@
 .ex {
   display: flex;
   width: 100%;
-  height: 75%;
+  height: 85%;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
 }
-
 .ex-1 {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   flex-shrink: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-  height: 100%;
-  scroll-snap-align: start;
-}
-.ex-1:nth-child(2) {
-  grid-template-columns: 1fr;
-}
-.wall {
-  display: grid;
-  place-items: center;
-}
-.wrapper-obj1 {
-  height: 60%;
-  aspect-ratio: 3/4;
-  position: relative;
-  perspective: 1000px;
-}
-.obj1 {
-  width: 100%;
-  height: 100%;
-  /* background-color: red; */
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
-  position: relative;
-}
-.ground {
-  position: absolute;
-  height: 15px;
-  width: 115%;
-  right: 0;
-  bottom: -15px;
-  background: url(../assets/tanah.png);
-}
-.ground2 {
-  position: absolute;
-  height: 80%;
-  width: 7px;
-  right: 0;
-  bottom: -3px;
-  transform: rotate(-90deg);
-  transform-origin: bottom left;
-  background-color: rgba(0, 0, 0, 0.856);
-}
-.ground2::after {
-  content: "";
-  position: absolute;
-  height: 30px;
-  aspect-ratio: 4/3;
-  background-color: rgba(0, 0, 0, 0.856);
-  top: 0;
-  right: 0;
-  transform: skewY(30deg);
-}
-.brick {
-  width: 55px;
-  height: 100%;
-  position: absolute;
-  background: url(../assets/bata.png);
-  bottom: 0;
-  right: 0;
-  background-size: 80% auto;
-  background-repeat: repeat;
-  transform: translate(100%) translateX(-14px);
-}
-.brick::after {
-  background: url(../assets/tanah.png);
-  width: 100%;
-  position: absolute;
-  height: 15px;
-  content: "";
-  bottom: 0;
-  transform: translateY(99%);
-}
-.brick2 {
-  width: 15px;
-  height: 100%;
-  position: absolute;
-  /* background: url(../assets/bata.png); */
-  bottom: 0;
-  right: -10px;
-  background-size: 250% auto;
-  background-repeat: repeat-y;
-}
-.brick2 img,
-.ground2 img {
-  height: 90%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transform: translate(-10%);
-}
-.ddiag {
-  width: 30px;
-  height: 96%;
-  background: url(../assets/tangga2.png);
-  background-size: 100% auto;
-  background-repeat: repeat-y;
-  position: absolute;
-  bottom: 0;
-  transform: rotate(-1deg) translateY(2px) skew(-37deg) translate(-24%);
-  transform-style: preserve-3d;
-  transform-origin: bottom left;
-}
-.ddiag::after {
-  width: 100%;
-  height: 20px;
-  background-color: rgb(255, 255, 255);
-  content: "";
-  position: absolute;
-  top: 0;
-  transform: translateY(-80%);
-}
-.ddiag2 {
-  position: absolute;
-  bottom: 0;
-  width: 6px;
-  height: 110%;
-  transform: rotate(36.87deg);
-  transform-style: preserve-3d;
-  transform-origin: bottom left;
-  border-left: 2.5px dashed rgba(210, 109, 7, 0.979);
-  border-right: 1.8px dashed rgb(0, 0, 0);
-  background-color: rgba(255, 255, 0, 0.235);
-}
-.t-a {
-  position: absolute;
-  bottom: 0;
-  left: 30%;
-  font-family: poplite;
-  font-size: 80%;
-  transform: translateY(-50%);
-}
-.angl-a {
-  width: 50%;
-  aspect-ratio: 1;
-  border: 2px solid blueviolet;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  border-radius: 50%;
-  transform: translate(-50%) translateY(50%);
 }
 
-.angl-c {
-  width: 20px;
-  height: 20px;
-  border-top: 2px solid blueviolet;
-  border-left: 2px solid blueviolet;
-  position: absolute;
-  bottom: -0px;
-  right: 10px;
-}
-.ex-1:nth-child(1) .angl-c {
-  right: 10px;
-  bottom: -3px;
-}
-
-.t-c {
-  position: absolute;
-  bottom: 2px;
-  right: 20px;
-  font-family: poplite;
-  font-size: 80%;
-}
-
-.t-b {
-  position: absolute;
-  top: 24%;
-  right: 17px;
-  font-family: poplite;
-  font-size: 80%;
-}
 .txt {
   position: relative;
   font-family: poplite;
+  display: grid;
+  place-items: center;
 }
 .txt li {
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 .dial {
-  position: absolute;
   width: 96%;
   height: fit-content;
   background-color: rgb(230, 230, 230);
   border-radius: 5px;
   top: 50%;
-  transform: translateY(-50%) translate(-10%);
-  padding: 3px;
+  padding: 1px;
 }
 
-.sun {
-  width: 40%;
-  aspect-ratio: 1;
-  background-color: aqua;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: url(../assets/matahari.png);
-  background-size: cover;
-  transform: translate(50%) translateY(-50%) rotate(0deg);
-  animation: rr linear infinite 2s;
+.pict {
+  display: grid;
+  place-items: center;
 }
-@keyframes rr {
-  50% {
-    transform: translate(50%) translateY(-50%) rotate(0deg) scale(0.93);
-    opacity: 0.6;
-  }
-  100% {
-    opacity: 1;
-  }
+.pict img {
+  width: 100%;
+  max-width: 310px;
 }
-@media (max-width: 500px) {
-  .examples {
-    width: 80%;
-    aspect-ratio: 4/5;
-  }
+
+@media (max-width: 550px) {
   .ex-1 {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
   }
-  .ex-1:nth-child(2) {
-    grid-template-rows: 1fr 30%;
+  .examples {
+    height: 90%;
   }
-  .dial {
-    left: 50%;
-    width: 80%;
-    padding: 3px;
-    transform: translate(-50%) translateY(0);
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .examples {
+    width: 85%;
+    height: 90%;
+  }
+  .pict img {
+    width: 70%;
   }
 }

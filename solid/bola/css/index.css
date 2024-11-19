@@ -122,7 +122,10 @@ body {
     letter-spacing: 3px;
   }
   .btn-group {
-    grid-template-rows: 35% 1fr 35%;
+    grid-template-rows: 28% 1fr 28%;
+  }
+  .btn-group button {
+    font-size: 70%;
   }
 }
 @media (orientation: landscape) and (max-height: 500px) {
@@ -136,8 +139,11 @@ body {
     height: fit-content;
   }
   .btn-group {
-    grid-template-rows: 5% 1fr 5%;
-    font-size: 50%;
+    grid-template-rows: 25% 1fr 25%;
+    /* font-size: 50%; */
+  }
+  .btn-group button {
+    font-size: 85%;
   }
   .btn-group button span {
     width: 17%;
