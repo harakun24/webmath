@@ -54,7 +54,7 @@
   margin-bottom: 15px;
 }
 .dial {
-  width: 96%;
+  width: 90%;
   height: fit-content;
   background-color: rgb(230, 230, 230);
   border-radius: 5px;
@@ -67,8 +67,11 @@
   place-items: center;
 }
 .pict img {
-  width: 100%;
+  width: 70%;
   max-width: 310px;
+}
+.ex-1:nth-child(2) .pict img {
+  width: 95%;
 }
 
 @media (max-width: 550px) {
