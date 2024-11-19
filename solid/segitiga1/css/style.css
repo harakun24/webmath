@@ -13,20 +13,9 @@ body {
   background-color: #808080;
   user-select: none;
   overflow: hidden;
-}
-.cover {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  overflow: hidden;
-}
-.cover img {
-  height: 100%;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  opacity: 0.5;
+  background-image: url(../assets/bg.png);
+  background-size: cover;
+  /* background-blend-mode: multiply; */
 }
 .page1 {
   height: 80%;
