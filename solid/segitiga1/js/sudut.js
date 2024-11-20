@@ -139,10 +139,12 @@ function checkAnswer() {
         // document.querySelector('.answer').style.opacity = 1;
     }, 500)
     if (btnGroup[0].classList.contains('active')) {
+        document.querySelector('.answer img').src = './assets/Correct.png';
         document.querySelector('.answer h2').innerHTML = 'Selamat! Kamu memahami sisi segitiga siku-siku';
         document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Tali layangan merupakan sisi terpanjang pada segitiga yang terbentuk. Karena itu, tali layangan adalah sisi miring.';
     }
     else {
+        document.querySelector('.answer img').src = './assets/Wrong.png';
         document.querySelector('.answer h2').innerHTML = 'Sayang sekali! Jawaban kamu belum tepat.';
         document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Coba cermati kembali gambar yang disajikan. Kemudian silahkan jawab kembali!';
     }
