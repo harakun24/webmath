@@ -55,7 +55,7 @@
   background-color: rgba(128, 128, 128, 0.385);
   position: absolute;
   display: grid;
-  display: none;
+  /* display: none; */
   place-items: center;
 }
 
@@ -181,27 +181,31 @@
   height: 100%;
   z-index: 4;
   display: grid;
-  display: none;
+  /* display: none; */
   place-items: center;
   backdrop-filter: blur(2px);
   transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s;
-  opacity: 0;
+  /* opacity: 0; */
 }
 
 .answer {
   width: 90%;
-  /* height: 80%; */
-  /* height: fit-content; */
   background-color: white;
   position: absolute;
   display: grid;
   grid-template-rows: 1fr auto auto auto;
-  /* justify-content: center; */
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.364);
   padding: 12px;
-  /* box-sizing: border-box; */
   max-width: 450px;
   transition: ease-in-out 0.5s;
+}
+
+.answer img {
+  width: 40%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  opacity: 0.8;
 }
 
 .answer h1,
