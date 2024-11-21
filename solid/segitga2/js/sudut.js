@@ -189,13 +189,13 @@ document.querySelectorAll('.button-dock button').forEach(e => {
 
 const closeBtn = document.querySelector('.answer button');
 
-closeBtn.addEventListener('click', (e) => {
-    document.querySelector('.answer').style.transform = 'scale(0) translate(-200%) rotateY(0deg)';
-    document.querySelector('.wrapper-answer').style.opacity = 0;
-    setTimeout(() => {
-        document.querySelector('.wrapper-answer').style.display = 'none';
-    }, 500)
-})
+// closeBtn.addEventListener('click', (e) => {
+//     document.querySelector('.answer').style.transform = 'scale(0) translate(-200%) rotateY(0deg)';
+//     document.querySelector('.wrapper-answer').style.opacity = 0;
+//     setTimeout(() => {
+//         document.querySelector('.wrapper-answer').style.display = 'none';
+//     }, 500)
+// })
 
 function checkAnswer() {
     const btnGroup = document.querySelectorAll('.button-dock button');
@@ -236,4 +236,61 @@ function openKesimpulan() {
         document.querySelector('.qcard').style.transform = 'scale(1) translateY(0)';
 
     }, 200)
+}
+
+document.querySelector('.uji button').addEventListener('click', function () {
+    this.classList.add('active');
+    setTimeout(() => {
+        this.classList.remove('active');
+    }, 500)
+})
+
+function closeQuest() {
+    document.querySelector('.q-card').style.transform = 'scale(0) translateY(-200%)';
+    setTimeout(() => {
+        document.querySelector('.q-quest').style.display = 'none';
+    }, 500)
+
+
+    document.body.classList.add('body');
+}
+function openQuest() {
+    window.scrollTo({
+        top: 0
+    });
+    document.body.classList.remove('body');
+    document.querySelector('.q-quest').style.display = 'grid';
+    document.querySelector('.q-card').style.transform = 'scale(0) translateY(-200%)';
+    setTimeout(() => {
+        document.querySelector('.q-card').style.transform = 'scale(1) translateY(0%)';
+    }, 500)
+}
+
+function menjawab() {
+    const answer = document.querySelector('.answ input').value;
+    if (!answer)
+        return;
+    if (answer == '0,4') {
+        document.querySelector('.q-answer img').src = './assets/Correct.png';
+        document.querySelector('.q-answer h1').innerHTML = 'Selamat!';
+        document.querySelector('.q-answer p').innerHTML = 'Kamu telah berhasil memahami perbandingan trigonometri dengan baik!';
+    }
+    else {
+        document.querySelector('.q-answer h1').innerHTML = 'Coba lagi!';
+        document.querySelector('.q-answer p').innerHTML = 'Periksa kembali jawabanmu! gunakan tanda koma (,) bukan tanda titik (.) jika diperlukan...';
+        document.querySelector('.q-answer img').src = './assets/Wrong.png';
+    }
+    document.querySelector('.answ input').value = '';
+    document.querySelector('.q-banner').style.display = 'grid';
+    document.querySelector('.q-answer').style.transform = 'scale(0)';
+    setTimeout(() => {
+        document.querySelector('.q-answer').style.transform = 'scale(1)';
+    }, 500)
+}
+
+function closeJawab() {
+    document.querySelector('.q-answer').style.transform = 'scale(0)';
+    setTimeout(() => {
+        document.querySelector('.q-banner').style.display = 'none';
+    }, 500)
 }
