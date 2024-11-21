@@ -12,10 +12,11 @@
     <link rel="stylesheet" href="./font/font.css" />
     <link rel="stylesheet" href="./css/contoh.css" />
     <link rel="stylesheet" href="./css/settings.css" />
+    <link rel="stylesheet" href="./css/question.css" />
     <link rel="stylesheet" href="../fa/css/all.min.css" />
     <script src="../fa/js/all.min.js"></script>
   </head>
-  <body>
+  <body class="body">
     <div class="page1">
       <h3># Jelajah Segitiga Siku-siku</h3>
       <h1>Perbandingan Trigonometri!</h1>
@@ -65,7 +66,7 @@
           <div class="barWidth"></div>
           <div class="btnUp btn-c"></div>
           <div class="btnLeft btn-c"></div>
-          <span id="outS">α = 30 &deg;</span>
+          <span id="outS">&alpha; = 30 &deg;</span>
         </div>
         <button class="reset" onclick="resetSegitiga()">
           <i class="fas fa-sync fa-xl"></i>
@@ -384,7 +385,7 @@
                 <span>a</span>
                 <span>b</span>
                 <span>c</span>
-                <span>α</span>
+                <span>&alpha;</span>
               </div>
             </div>
             <div class="obj_def">
@@ -398,19 +399,19 @@
                   <tr>
                     <th>a</th>
                     <td>
-                      Merupakan sisi depan sudut α. Ini adalah sisi yang
-                      berlawanan dengan sudut α.
+                      Merupakan sisi depan sudut &alpha;. Ini adalah sisi yang
+                      berlawanan dengan sudut &alpha;.
                     </td>
                   </tr>
                   <tr>
                     <th>b</th>
                     <td>
-                      Merupakan sisi samping sudut α. Ini adalah sisi yang
-                      berdekatan dengan sudut α, tetapi bukan sisi miring.
+                      Merupakan sisi samping sudut &alpha;. Ini adalah sisi yang
+                      berdekatan dengan sudut &alpha;, tetapi bukan sisi miring.
                     </td>
                   </tr>
                   <tr>
-                    <th>α</th>
+                    <th>&alpha;</th>
                     <td>
                       Adalah sudut yang menjadi acuan untuk menentukan sisi
                       depan dan sisi samping.
@@ -424,27 +425,29 @@
             <table>
               <thead>
                 <tr>
-                  <th>Perbandingan Trigonometri (Dilihat dari Sudut α)</th>
+                  <th>
+                    Perbandingan Trigonometri (Dilihat dari Sudut &alpha;)
+                  </th>
                   <th>Definisi</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>sin α</td>
+                  <td>sin &alpha;</td>
                   <td>
                     perbandingan antara sisi depan sudut dan sisi miring dalam
                     segitiga siku-siku
                   </td>
                 </tr>
                 <tr>
-                  <td>cos α</td>
+                  <td>cos &alpha;</td>
                   <td>
                     perbandingan antara sisi samping sudut dan sisi miring dalam
                     segitiga siku-siku
                   </td>
                 </tr>
                 <tr>
-                  <td>tan α</td>
+                  <td>tan &alpha;</td>
                   <td>
                     perbandingan antara sisi depan dan sisi samping dalam
                     segitiga siku-siku
@@ -452,7 +455,50 @@
                 </tr>
               </tbody>
             </table>
-            <div class="uji"><button>Uji Pemahaman</button></div>
+            <div class="uji">
+              <button onclick="openQuest()">Uji Pemahaman</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="q-quest">
+        <div class="q-card">
+          <h4><button onclick="closeQuest()">&#10005;</button></h4>
+          <div class="img">
+            <img src="./assets/tebing-2.png" alt="" />
+          </div>
+          <div class="tanyaa">
+            <p>
+              Sebuah jembatan berbentuk miring menghubungkan dua sisi sungai
+              yang memiliki perbedaan ketinggian <b>12 meter</b>.
+
+              <br />
+              <br />
+              Jika panjang jembatan secara horizontal adalah <b> 30 meter</b>,
+              berapakah nilai <u>tangen</u> sudut kemiringan jembatan?
+            </p>
+          </div>
+          <div class="answ">
+            <label for="txtAnswer">Jawaban Anda :</label>
+            <input
+              type="text"
+              id="txtAnswer"
+              placeholder="masukkan jawaban anda"
+              onchange="menjawab()" />
+            <button onclick="menjawab()">jawab</button>
+          </div>
+        </div>
+        <div class="q-banner">
+          <div class="q-answer">
+            <h4>
+              <button onclick="closeJawab()">&#10005;</button>
+            </h4>
+            <img src="./assets/Correct.png" alt="" />
+            <h1>Selamat!</h1>
+            <p>
+              Kamu telah berhasil memahami perbandingan trigonometri dengan
+              baik!
+            </p>
           </div>
         </div>
       </div>
