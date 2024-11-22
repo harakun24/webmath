@@ -55,7 +55,7 @@
   background-color: rgba(128, 128, 128, 0.385);
   position: absolute;
   display: grid;
-  /* display: none; */
+  display: none;
   place-items: center;
 }
 
@@ -181,10 +181,11 @@
   height: 100%;
   z-index: 4;
   display: grid;
-  /* display: none; */
+  display: none;
   place-items: center;
   backdrop-filter: blur(2px);
   transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.5s;
+  font-family: poplite;
   /* opacity: 0; */
 }
 
@@ -324,5 +325,8 @@ h4 button:hover {
   }
   .answer {
     height: 85%;
+  }
+  .answer img {
+    width: 30%;
   }
 }
