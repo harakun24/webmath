@@ -7,6 +7,8 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin: 0;
   height: 100vh;
+  background-image: url(./Aset/bg2.png);
+  background-size: cover;
 }
 :root {
   --control: rgba(19, 18, 27, 0.811);
@@ -357,6 +359,12 @@ body {
   transform: translate(-50%) translateY(50%);
   white-space: nowrap;
   opacity: 0.8;
+}
+#quest {
+  color: rgba(0, 0, 0, 0.908);
+  background-color: white;
+  padding: 14px 12px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.624);
 }
 @media (max-width: 700px) {
   .wrapper {
