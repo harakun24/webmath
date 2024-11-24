@@ -275,7 +275,8 @@ function checkAnswer() {
     jebakan.innerHTML = `${36 - answer.all}`;
     // let currentScore = (answer.benar * 10) - (answer.salah * 5);
     // let currentScore = answer.salah < 1 ? (answer.all - answer.benar < 1 ? 10 : 0) : 0;
-    let currentScore = Math.ceil(answer.benar / answer.all * 10) - Math.ceil(answer.salah / 36 * 3);
+    // let currentScore = Math.ceil(answer.benar / answer.all * 10) - Math.ceil(answer.salah / 36 * 3);
+    let currentScore = answer.all - answer.benar == 0 ? 10 : 0;
 
     // if (currentScore > 0)
     score += currentScore;
