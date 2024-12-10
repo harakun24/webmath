@@ -89,7 +89,7 @@ body {
   background-color: var(--blue);
   color: var(--lightBlue);
 }
-.page1 .demoSegitiga {
+/* .page1 .demoSegitiga {
   width: 80px;
   height: 80px;
   background-color: var(--blue);
@@ -97,11 +97,19 @@ body {
   position: absolute;
   left: 60%;
   transform: translate(-25%) rotate(0);
-  /* transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s; */
   animation: rotating 8.5s infinite linear;
   opacity: 0.9;
+} */
+
+.icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
-.demoSegitiga::after {
+.icon img {
+  width: 52%;
+}
+/* .demoSegitiga::after {
   position: absolute;
   width: 15px;
   height: 15px;
@@ -130,7 +138,6 @@ body {
 .demoSegitiga2 {
   transform: translate(-25%) rotate(0);
   animation: rotating 11.5s infinite linear alternate-reverse;
-  /* animation-delay: 0.5s;? */
   width: 60px;
   height: 70px;
   background-color: var(--orange);
@@ -142,7 +149,6 @@ body {
 .demoSegitiga3 {
   transform: translate(-25%) rotate(0);
   animation: rotating 15.5s infinite linear;
-  /* animation-delay: 0.5s;? */
   width: 50px;
   height: 40px;
   background-color: rgb(243, 91, 91);
@@ -150,7 +156,7 @@ body {
   left: 40%;
   clip-path: polygon(0 0, 100% 0, 100% 100%);
   opacity: 0.9;
-}
+} */
 .dialogPetunjuk {
   width: 100%;
   height: 100%;
@@ -180,31 +186,11 @@ body {
   /* border: 3px solid var(--orange); */
   /* background-color: var(--blue); */
 }
-@keyframes rotating {
-  40% {
-    transform: translate(-80%) rotate(103deg) translateY(20%);
-    left: 30%;
-  }
-  68% {
-    transform: translate(var(--moveX)) rotate(175deg) translateY(-90%);
-    left: 50%;
-  }
-  85% {
-    transform: translate(10%) rotate(218.65deg) translateY(var(--moveY));
-    /* transform: translate(10%) rotate(218.65deg) translateY(var(--moveY)); */
-    left: 70%;
-  }
-  92% {
-    transform: translate(0%) rotate(240deg) translateY(-10%);
-    left: 50%;
-  }
-  100% {
-    transform: translate(-25%) rotate(360deg) translateY(0%);
-  }
-}
+
 @media (max-width: 500px) {
   .page1 {
     width: 85%;
+    height: 64%;
   }
   .dialogPetunjuk .panel {
     width: 90%;
