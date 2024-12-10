@@ -329,6 +329,15 @@ input::placeholder {
   opacity: 0.9;
 }
 @media (orientation: landscape) and (max-height: 500px) {
+  .icon {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+  .icon img {
+    width: 24%;
+  }
   .page2 {
     width: 90%;
     height: 100%;
