@@ -136,9 +136,20 @@ function hitungSudut(sdt = false) {
     }
     document.getElementById('sudut').value = '';
     document.querySelector('.sdtB').innerHTML = sudut.b;
-    document.querySelectorAll('.sectsdt').forEach(itm => {
-
-        itm.innerHTML = `${sudut.a}&deg;`;
+    document.querySelectorAll('.sectsdt').forEach((itm, i) => {
+        let name = '';
+        switch (i + 1) {
+            case 1:
+                name = 'sin ';
+                break;
+            case 2:
+                name = 'cos ';
+                break;
+            case 3:
+                name = 'tan ';
+                break;
+        }
+        itm.innerHTML = `${name}${sudut.a}&deg;`;
     })
     document.querySelectorAll('.depanTxt').forEach(itm => {
         itm.innerHTML = (heightSegitiga / 4).toFixed(2) * 1;
