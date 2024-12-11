@@ -24,18 +24,30 @@ body {
   box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.466);
   display: grid;
   /* display: none; */
-  grid-template-rows: auto auto 1fr;
+  grid-template-rows: auto auto 1fr 1fr;
+}
+
+.icon {
+  width: 100%;
+  /* background-color: red; */
+  grid-row: 1;
+  padding-bottom: 10px;
+}
+
+.icon img {
+  width: 40%;
 }
 
 .wrapper h1 {
   color: var(--yellow);
   font-family: poppins;
-  font-size: 2.5em;
+  font-size: 2.4em;
   opacity: 0.8;
   letter-spacing: 2px;
   text-shadow: 4px 5px 0px #394da4b9;
   /* transform: translateY(-20px); */
   margin-top: -10px;
+  grid-row: 3;
 }
 
 .wrapper h2 {
@@ -47,7 +59,9 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 10% 1fr 20px 1fr 10%;
-  grid-template-rows: 30% 1fr 30%;
+  grid-template-rows: 25% 1fr 25%;
+  /* background-color: green; */
+  /* grid-row: 3; */
 }
 .btn-group button:nth-child(1) {
   grid-column: 2;
@@ -131,19 +145,28 @@ body {
 @media (orientation: landscape) and (max-height: 500px) {
   .wrapper {
     aspect-ratio: 4/3;
-    height: 70%;
+    height: 80%;
     width: auto;
-    transform: translateY(-10%);
+    /* transform: translateY(-10%); */
+    grid-template-rows: auto auto auto;
+  }
+  .wrapper h1 {
+    grid-row: 2;
+    padding-top: 10px;
   }
   .body {
     height: fit-content;
   }
   .btn-group {
+    grid-row: 3;
     grid-template-rows: 25% 1fr 25%;
     /* font-size: 50%; */
+    margin-top: 10px;
   }
   .btn-group button {
     font-size: 85%;
+    padding-top: 10%;
+    padding-bottom: 10%;
   }
   .btn-group button span {
     width: 17%;

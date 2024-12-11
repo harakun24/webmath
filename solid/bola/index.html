@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./css/layout.css" />
     <link rel="stylesheet" href="./font/font.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/latihan.css" />
     <link rel="stylesheet" href="./katex/katex.min.css" />
     <script src="./katex/katex.min.js"></script>
     <script src="./katex/contrib/auto-render.min.js"></script>
@@ -21,9 +22,12 @@
   <body>
     <div class="wrapper">
       <h4 style="opacity: 0">Dunia Sistem Persamaan Linear</h4>
+      <div class="icon">
+        <img src="./assets/logo.svg" alt="" />
+      </div>
       <h1>Simulasi Sistem Persamaan Linear</h1>
       <div class="btn-group">
-        <button class="petunjuk">
+        <button class="petunjuk" onclick="openLatihan()">
           Latihan Soal <span><i class="fa fa-lightbulb"></i></span></button
         ><button class="mulai" onclick="gameStart()">
           Mulai <span><i class="fa fa-play"></i></span>
@@ -112,6 +116,42 @@
       <div class="alert">
         <span>Minimal dua bola untuk bisa ditimbang</span>
         <i class="fa fa-close" onclick="closeNotif(this)"></i>
+      </div>
+    </div>
+    <div class="latihan">
+      <div class="fcover" onclick="closeLatihan()"></div>
+      <div class="qcard">
+        <img src="./assets/docc3.gif" alt="" />
+        <p>Jawablah berat dari masing-masing bola yang telah anda timbang!</p>
+        <div class="inputGroup">
+          <label for="bvoli">Bola Voli</label>
+          <input
+            id="bvoli"
+            type="number"
+            min="0"
+            placeholder="Contoh: 10"
+            onchange="document.querySelector('.inputGroup button').click()" />
+          <span>gram</span>
+          <label for="btenis">Bola Tenis</label>
+          <input
+            id="btenis"
+            type="number"
+            min="0"
+            placeholder="Contoh: 5"
+            onchange="document.querySelector('.inputGroup button').click()" />
+          <span>gram</span>
+          <label for="bpong">Bola Ping-pong</label>
+          <input
+            id="bpong"
+            type="number"
+            min="0"
+            placeholder="Contoh: 20"
+            onchange="document.querySelector('.inputGroup button').click()" />
+          <span>gram</span>
+          <button>Jawab</button>
+        </div>
+        <div class="q-hint"></div>
+        <img src="./assets/Correct.png" alt="" />
       </div>
     </div>
     <script src="./js/index.js"></script>

@@ -270,3 +270,78 @@ window.onload = function () {
     katex.render(`z`, document.querySelector('.ez'))
     katex.render(`z`, document.querySelectorAll('.ez')[1])
 }
+
+document.querySelector('.inputGroup button').addEventListener('click', function () {
+    this.classList.add('active');
+    const inputs = document.querySelectorAll('.qcard input');
+
+    if (inputs[0].value && inputs[1].value && inputs[2].value) {
+        inputs[0].classList.remove('valid');
+        inputs[1].classList.remove('valid');
+        inputs[2].classList.remove('valid');
+
+        const img = document.querySelector('.qcard img:nth-of-type(2)');
+        img.style.transform = 'scale(0) rotate(-21deg)';
+        let status = 0;
+
+        if (point.x == inputs[0].value - 0) {
+            inputs[0].classList.add('valid');
+            status++;
+        }
+        else if (point.x != inputs[0].value - 0)
+            inputs[0].classList.add('invalid')
+
+        if (point.y == inputs[1].value - 0) {
+            inputs[1].classList.add('valid');
+            status++;
+        }
+        else if (point.y != inputs[1].value - 0)
+            inputs[1].classList.add('invalid')
+
+        if (point.z == inputs[2].value - 0) {
+            inputs[2].classList.add('valid');
+            status++;
+        }
+        else if (point.z != inputs[2].value - 0)
+            inputs[2].classList.add('invalid')
+
+        document.querySelector('.q-hint').classList.add('active');
+
+        if (status < 3) {
+            img.src = './assets/Wrong.png'
+            document.querySelector('.q-hint').innerHTML = 'Silahkan periksa jawaban anda kembali!'
+        }
+        else {
+            document.querySelector('.q-hint').innerHTML = 'Jawaban anda benar!'
+            img.src = './assets/Correct.png'
+        }
+
+        // img.style.transform = 'scale(1) rotate(24deg)';
+        // img.style.opacity = '1';
+    }
+
+    setTimeout(() => {
+        this.classList.remove('active');
+        const img = document.querySelector('.qcard img:nth-of-type(2)');
+        img.style.transform = 'scale(1) rotate(24deg) translateY(13%)';
+        img.style.opacity = '1';
+    }, 500)
+})
+
+function openLatihan() {
+    const latihan = document.querySelector('.latihan');
+    latihan.style.display = 'grid';
+    document.querySelector('.qcard').style.transform = 'scale(0)';
+    latihan.style.opacity = '1';
+    setTimeout(() => {
+        document.querySelector('.qcard').style.transform = 'scale(1)';
+    }, 100)
+}
+
+function closeLatihan() {
+    const latihan = document.querySelector('.latihan');
+    latihan.style.opacity = '0';
+    setTimeout(() => {
+        latihan.style.display = 'none';
+    }, 500)
+}
