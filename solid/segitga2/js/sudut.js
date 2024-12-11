@@ -5,7 +5,8 @@ function cariTinggi(sudut, lebar) {
     return lebar * Math.tan(sudut * (Math.PI / 180))
 }
 function aturSudut(t) {
-
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     if (t.value > 85) {
         t.value = 80;
     }
@@ -52,8 +53,8 @@ function resetSegitiga() {
     document.querySelector('.sdtB').innerHTML = 90 - 36.87;
 
     tutupMenu();
-    document.getElementById('sudut').value = 36.87;
-    document.getElementById('rotasi').value = 0;
+    document.getElementById('sudut').value = '';
+    document.getElementById('rotasi').value = '';
     document.querySelectorAll('.sectsdt').forEach(itm => {
 
         itm.innerHTML = `36.87 &deg;`;
@@ -79,6 +80,8 @@ const tempSize = {
     panjang: 0, lebar: 0
 }
 function toggleContent(t) {
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     const btn = t.querySelector('.show');
     if (btn.classList.contains('fa-expand')) {
         tempSize.panjang = document.querySelector('.page2').clientHeight;
@@ -120,6 +123,8 @@ const checkboxes = document.querySelectorAll('.check input');
 
 checkboxes.forEach((checkbox, index) => {
     checkbox.addEventListener('change', function () {
+        const sound = new Audio('./assets/sound/menyuu.wav');
+        sound.play();
         const btm = document.querySelectorAll('.btm')[index]; // Mengambil elemen .btm yang sesuai
         btm.style.opacity = this.checked ? 1 : 0; // Mengatur opasitas
         document.querySelectorAll('.check input').forEach(other => {
@@ -220,6 +225,8 @@ function checkAnswer() {
 }
 
 function closeKesimpulan() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.querySelector('.qcard').style.opacity = 0;
     document.querySelector('.qcard').style.transform = 'scale(0) translateY(-200%)';
     setTimeout(() => {
@@ -246,6 +253,8 @@ document.querySelector('.uji button').addEventListener('click', function () {
 })
 
 function closeQuest() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.querySelector('.q-card').style.transform = 'scale(0) translateY(-200%)';
     setTimeout(() => {
         document.querySelector('.q-quest').style.display = 'none';
@@ -255,6 +264,8 @@ function closeQuest() {
     document.body.classList.add('body');
 }
 function openQuest() {
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     window.scrollTo({
         top: 0
     });
@@ -267,6 +278,8 @@ function openQuest() {
 }
 
 function menjawab() {
+    const sound = new Audio('./assets/sound/fclick.wav');
+    sound.play();
     const answer = document.querySelector('.answ input').value;
     if (!answer)
         return;
@@ -289,6 +302,8 @@ function menjawab() {
 }
 
 function closeJawab() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.querySelector('.q-answer').style.transform = 'scale(0)';
     setTimeout(() => {
         document.querySelector('.q-banner').style.display = 'none';
