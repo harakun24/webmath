@@ -5,7 +5,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Simulasi - Ruang Sampel</title>
+    <link rel="shortcut icon" href="./Aset/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -13,7 +14,7 @@
       <div class="control">
         <div class="banner">
           <img src="./Aset/dice.png" alt="" />
-          <h2>Linked Dice</h2>
+          <h2></h2>
         </div>
         <div class="peluang">
           peluang<b><span id="peluang">0</span><span>36</span></b>
@@ -25,7 +26,7 @@
           <div class="status">
             <!-- itm -->
             <span></span>
-            <span>terjawab</span>
+            <span>total terjawab</span>
             <div
               class="color"
               style="background-color: #46de1c; opacity: 0.9"></div>
@@ -34,7 +35,7 @@
             <span></span>
             <!-- itm -->
             <!-- itm -->
-            <span>terlewatkan</span>
+            <span>tidak terjawab</span>
             <div
               class="color"
               style="
@@ -46,7 +47,7 @@
             <span></span>
             <!-- itm -->
             <!-- itm -->
-            <span>jawaban salah</span>
+            <span>salah menjawab</span>
             <div
               class="color"
               style="background-color: #f50c0c; opacity: 0.8"></div>
@@ -81,8 +82,11 @@
           <h3 id="quest"></h3>
         </div>
         <div class="inner">
-          <h1 class="habis">Selamat Datang</h1>
-
+          <h1 class="habis">
+            <img class="img" src="./Aset/logo.svg" alt="" />
+            <br />
+            Simulasi Ruang Sampel
+          </h1>
           <button class="reset" onclick="start()">Mulai</button>
         </div>
       </div>

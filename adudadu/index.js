@@ -1,6 +1,13 @@
 let statusClick = true;
+const soundStart = new Audio('./Aset/sound/fclick.wav');
+
+
 function clicked(t, x, y) {
+    const soundFlip = new Audio('./Aset/sound/menyu.wav');
+    // const soundFlip = new Audio('./Aset/sound/flip2.wav');
+
     if (statusClick) {
+        soundFlip.play();
         statusClick = false;
 
         if (t.classList.contains('yellow')) {
@@ -85,8 +92,7 @@ function randomized() {
     else
         val = Math.floor(Math.random() * 12)
     const redundant = Math.floor(Math.random() * 100) % 2;
-
-    if (redundant == 0) {
+    if (redundant == 0 && level > 4) {
         let val2;
         let index2 = Math.floor(Math.random() * (condition.length));
         while (index2 == index)
@@ -106,6 +112,10 @@ function randomized() {
     return result;
 }
 function indexing() {
+    const soundIndex = new Audio('./Aset/sound/mm.wav');
+    soundIndex.play();
+
+    document.querySelector('#quest').classList.add('active')
     counter = localStorage.getItem('counterdadu') - 0 || 0;
     score = localStorage.getItem('scoredadu') - 0 || 0;
     level = localStorage.getItem('leveldadu') - 0 || 0;
@@ -115,17 +125,18 @@ function indexing() {
 
         localStorage.setItem('leveldadu', level);
         quest.innerHTML = ``;
+        document.querySelector('#quest').classList.remove('active')
         document.querySelectorAll('.wrapper-left button').forEach(item => {
             item.remove();
         });
         const stars = Math.ceil(score / (counter * 10) * 5);
         let indexStars = 0;
-        let msgHeader = stars > 3 ? 'Selamat! poin mencukupi untuk bisa naik level!' : stars > 0 ? 'Poin belum mencukupi untuk naik level... ulangi untuk mengumpulkan lebih banyak poin' : 'Jangan patah semangat! coba lagi... :)';
+        let msgHeader = stars > 3 ? 'Selamat! poin mencukupi untuk bisa naik level!' : stars > 0 ? 'Poin belum mencukupi untuk naik level. ulangi untuk mengumpulkan lebih banyak poin' : 'Jangan patah semangat! coba lagi.';
         let msgBtn = stars > 3 ? '<button class="reset" onclick="reset()" > Ulangi level </button ><button class="reset" onclick="reset(true)" > Naik level </button >' : '<button class="reset" onclick="reset()" style="opacity:0"> Ulangi level </button ><button class="reset" onclick="reset()" > Ulangi level </button >';
 
         document.querySelector('.inner').innerHTML = `<h4 class="habis">${msgHeader}<span style="font-size:120%"></span><br/><span id="rate" style="font-size:350%">
         ${Array(5).fill(0).map(e => indexStars++ < stars ? '&#9733;' : '&#9734;').join('')}
-        </span><br/> <span style="font-size:100%">Total poin : ${score} dari ${counter * 10} p</span></h4 ><div class='btn-reset'>${msgBtn}</div>`;
+        </span><br/> <span style="font-size:100%">Total poin : ${score} dari ${counter * 10} poin</span></h4 ><div class='btn-reset'>${msgBtn}</div>`;
 
         localStorage.setItem('gameStart', false);
         return;
@@ -134,7 +145,7 @@ function indexing() {
     document.querySelectorAll('.skor button')[1].style.display = 'none';
     document.querySelectorAll('.skor button')[0].style.display = 'block';
 
-    document.querySelector('#score').innerHTML = `${score} p`
+    document.querySelector('#score').innerHTML = `${score} poin`
     const r = randomized();
     currentCondition = r;
     let strText = `${counter + 1}. Peluang ${condition[r.index]} ${r.index < 4 ? r.val : ''}`;
@@ -226,6 +237,8 @@ function indexing() {
     })
 }
 function checkAnswer() {
+    const soundIndex = new Audio('./Aset/sound/menyuu.wav');
+    soundIndex.play();
     const count = document.querySelectorAll('.yellow').length;
     if (count < 1)
         return alert('minimal pilih satu kotak!');
@@ -284,8 +297,8 @@ function checkAnswer() {
     localStorage.setItem('scoredadu', score);
     localStorage.setItem('counterdadu', counter);
 
-    document.querySelector('#score').innerHTML = `${score} p`
-    document.querySelector('#add').innerHTML = `${currentScore > -1 ? '+' : ''}${currentScore} p`;
+    document.querySelector('#score').innerHTML = `${score} poin`
+    document.querySelector('#add').innerHTML = `${currentScore > -1 ? '+' : ''}${currentScore} poin`;
     document.querySelectorAll('.skor button')[0].style.display = 'none';
     document.querySelectorAll('.skor button')[1].style.display = 'block';
 }
@@ -355,18 +368,21 @@ function notReady() {
 }
 
 function start() {
+    soundStart.play();
     localStorage.setItem('scoredadu', 0);
     localStorage.setItem('counterdadu', 0);
     localStorage.setItem('gameStart', true);
     indexing();
-    document.querySelector('#score').innerHTML = '0 p'
-    document.querySelector('#add').innerHTML = '+0 p';
+    document.querySelector('#score').innerHTML = '0 poin'
+    document.querySelector('#add').innerHTML = '+0 poin';
 }
 if (localStorage.getItem('gameStart') == 'true')
     indexing();
 
 function quit() {
+    soundStart.play();
     if (confirm('yakin ingin keluar? Level anda akan direset')) {
+        soundStart.play();
         localStorage.setItem('gameStart', false);
         localStorage.setItem('leveldadu', 0);
 
@@ -382,7 +398,7 @@ if (level == 9999)
     level--;
 
 
-if (level > 9997)
+if (level > 10)
     document.querySelector('.inner').innerHTML = `<h4 class="habis"><span style="font-size:120%">Game telah Tamat!</span><br/><span id="rate" style="font-size:350%">
         ${Array(5).fill(0).map(e => '&#9733;').join('')}
-        </span><br/> <span style="font-size:100%">Anda memang gamer sejati! Usaha anda patut diapresiasi...</span></h4 ><div class='btn-reset'><button class="reset" onclick="quit()" > Ulangi lv. 1 </button ><button class="reset" onclick="quit(true)" > Keluar </button ></div>`;
+        </span><br/> <span style="font-size:100%">Selamat anda telah berhasil menamatkan simulasi ruang sampel</span></h4 ><div class='btn-reset'><button class="reset" onclick="quit()" > Ulangi lv. 1 </button ><button class="reset" onclick="quit(true)" > Keluar </button ></div>`;
