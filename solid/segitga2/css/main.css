@@ -479,6 +479,12 @@ input::placeholder {
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
+  .icon {
+    padding-bottom: 10px;
+  }
+  .icon img {
+    width: 24%;
+  }
   .page2 {
     width: 90%;
     height: 100%;
