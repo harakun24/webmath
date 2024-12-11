@@ -225,3 +225,11 @@ function hideContoh() {
         document.querySelector('.contoh').style.display = 'none';
     }, 300)
 }
+
+document.querySelectorAll('.control-nav a').forEach(e => {
+    e.addEventListener('click', () => {
+
+        const sound = new Audio('./assets/sound/flip.wav');
+        sound.play();
+    })
+})
