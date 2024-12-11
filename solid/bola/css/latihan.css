@@ -1,0 +1,148 @@
+/** @format */
+
+.latihan {
+  position: absolute;
+  background-color: rgba(161, 160, 160, 0.473);
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  display: grid;
+  place-items: center;
+  display: none;
+  opacity: 0;
+  transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+}
+.fcover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(231, 204, 204, 0);
+  z-index: 1;
+}
+.qcard {
+  z-index: 2;
+  background-color: white;
+  aspect-ratio: 9/10;
+  height: 80%;
+  border-radius: 7px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.418);
+  overflow: hidden;
+  padding: 15px;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
+  transition: cubic-bezier(0.47, 0, 0.745, 0.715) 0.35s;
+}
+.qcard p {
+  text-align: center;
+  grid-row: 2;
+}
+
+.inputGroup {
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 5px;
+  /* align-items: center; */
+}
+.inputGroup label,
+.inputGroup span {
+  align-self: center;
+}
+
+.inputGroup input {
+  font-size: 100%;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input.invalid {
+  border: 2px solid rgb(243, 8, 8);
+  background-color: rgba(238, 114, 114, 0.151);
+}
+input.valid {
+  border: 2px solid rgb(8, 243, 39);
+  background-color: rgba(114, 238, 135, 0.151);
+}
+
+.inputGroup button {
+  padding: 10px 0;
+  /* width: 40%; */
+  grid-column: 2;
+  border: 2px solid rgb(0, 60, 255);
+  border-radius: 5px;
+  background-color: rgba(52, 163, 236, 0.815);
+  font-size: 100%;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.877);
+
+  cursor: pointer;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.342);
+  transition: ease-in-out 0.5s;
+}
+
+.inputGroup button:hover {
+  background-color: rgba(38, 113, 184, 0.815);
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.342);
+}
+
+.inputGroup button.active {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 0 rgba(0, 0, 0, 0.342);
+  color: rgba(52, 163, 236, 0.815);
+  transform: translateY(4px);
+}
+.qcard img {
+  width: 100%;
+}
+.q-hint {
+  position: absolute;
+}
+.q-hint.active {
+  background-color: white;
+  padding: 8px;
+  border: 3px solid rgb(253, 253, 253);
+  border-bottom-right-radius: 7px;
+  box-shadow: 4px 4px 3px rgba(0, 0, 0, 0.486);
+}
+
+.qcard img {
+  grid-row: 1;
+  grid-column: 1;
+}
+.qcard img:nth-of-type(2) {
+  width: 40%;
+  justify-self: center;
+  align-self: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 4px 5px 3px rgba(0, 0, 0, 0.637);
+  transition: cubic-bezier(0.19, 1, 0.22, 1) 0.5s;
+  transform: scale(0) rotate(-21deg);
+  opacity: 0;
+}
+
+@media (max-width: 550px) {
+  .qcard {
+    width: 85%;
+    grid-template-rows: auto auto 1fr 1fr 1fr;
+  }
+  .inputGroup {
+    grid-row: 4;
+    row-gap: 10px;
+  }
+  .inputGroup label {
+    font-size: 92%;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 550px) {
+  .qcard {
+    width: 40%;
+    font-size: 70%;
+    overflow-y: scroll;
+  }
+}
