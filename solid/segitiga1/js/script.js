@@ -1,4 +1,6 @@
 function showDialog() {
+    const soundOpen = new Audio('./assets/sound/mm.wav');
+    soundOpen.play();
     document.querySelector('.panel').style.transform = 'scale(0)';
     document.querySelector('.dialogPetunjuk').style.display = 'grid';
     setTimeout(() => {
@@ -8,6 +10,8 @@ function showDialog() {
     document.querySelector('.cover').style.filter = 'blur(8px)';
 }
 function hideDialog() {
+    const soundOpen = new Audio('./assets/sound/menyu.wav');
+    soundOpen.play();
     document.querySelector('.page1').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.filter = 'blur(0px)';
     document.querySelector('.dialogPetunjuk').style.display = 'none'
@@ -21,23 +25,32 @@ let isDrag = false;
 let rotate = 0;
 left.addEventListener('mousedown', e => {
     isDrag = "kanan";
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.addEventListener('mousemove', rotateDiv);
 });
 right.addEventListener('mousedown', e => {
     isDrag = "kiri";
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.addEventListener('mousemove', rotateDiv);
 });
 left.addEventListener('touchstart', e => {
     isDrag = "kanan";
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.addEventListener('touchmove', rotateDiv);
 });
 right.addEventListener('touchstart', e => {
     isDrag = "kiri";
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.addEventListener('touchmove', rotateDiv);
 });
 
 document.addEventListener('mouseup', () => {
     isDrag = false;
+
     document.removeEventListener('mousemove', rotateDiv);
 })
 document.addEventListener('touchend', () => {
@@ -45,6 +58,7 @@ document.addEventListener('touchend', () => {
     document.removeEventListener('touchmove', rotateDiv);
 })
 function rotateDiv(en) {
+
     let parent = parents % 360;
     if (parent < 0)
         parent = parent * -1;
@@ -141,6 +155,8 @@ document.querySelectorAll('.control-nav a').forEach(item => {
 })
 
 function startGame() {
+    const soundOpen = new Audio('./assets/sound/fclick.wav');
+    soundOpen.play();
     document.querySelector('.page1').style.display = 'none';
     document.querySelector('.page2').style.display = 'grid';
     console.log('game start');
@@ -148,6 +164,8 @@ function startGame() {
 }
 
 function rotating(t) {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     parents = t.value - 0;
     t.placeholder = t.value + '°';
     t.value = ''
@@ -171,11 +189,15 @@ function rotating(t) {
 
 }
 function tutupMenu() {
+    const soundOpen = new Audio('./assets/sound/menyuu.wav');
+    soundOpen.play();
     document.querySelector('.bcover').style.display = 'none';
     document.querySelector('.page2').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.flter = 'blur(0px)';
 }
 function bukaMenu() {
+    const soundOpen = new Audio('./assets/sound/menyuu.wav');
+    soundOpen.play();
     document.querySelector('.bcover').style.display = 'block';
     document.querySelector('.page2').style.filter = 'blur(2px)';
     document.querySelector('.cover').style.flter = 'blur(2px)';
@@ -186,6 +208,8 @@ function bukaMenu() {
 }
 
 function showContoh() {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.querySelector('.contoh').style.display = 'block';
     tutupMenu();
     document.querySelector('.contoh').style.opacity = 0;
@@ -194,6 +218,8 @@ function showContoh() {
     }, 300)
 }
 function hideContoh() {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.querySelector('.contoh').style.opacity = 0;
     setTimeout(() => {
         document.querySelector('.contoh').style.display = 'none';

@@ -102,6 +102,11 @@
   left: 0;
   bottom: 0;
 }
+
+.orang.layang2 {
+  opacity: 0;
+  animation: opp 4.4s linear infinite;
+}
 .wrapper-conclude .kite {
   position: absolute;
   width: 30%;
@@ -109,7 +114,7 @@
   top: 0;
   transform: translate(60%) translateY(-30%) rotate(-15deg);
 }
-.tri-gl {
+/* .tri-gl {
   width: 80%;
   height: 80%;
   background-color: rgb(171, 11, 11);
@@ -118,12 +123,11 @@
   right: 15px;
   bottom: 25px;
   opacity: 0;
-  animation: opp 4.4s linear infinite;
-}
+} */
 
 @keyframes opp {
   50% {
-    opacity: 0.85;
+    opacity: 1;
   }
 }
 
