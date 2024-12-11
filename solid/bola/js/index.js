@@ -4,6 +4,7 @@ const keranjang = document.querySelector('.keranjang');
 
 document.querySelectorAll('.btn-group button').forEach(itm => {
     itm.addEventListener('mousedown', () => {
+
         itm.classList.add('active');
     })
     itm.addEventListener('mouseup', () => {
@@ -12,6 +13,8 @@ document.querySelectorAll('.btn-group button').forEach(itm => {
 })
 document.querySelectorAll('.add').forEach(itm => {
     itm.addEventListener('mousedown', () => {
+        const sound = new Audio('./assets/sound/menyu.wav');
+        sound.play();
         itm.classList.add('active');
         setTimeout(() => {
             itm.classList.remove('active');
@@ -67,7 +70,8 @@ function generateBall(ballName) {
 }
 
 function timbang() {
-
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     const balls = {
         x: keranjang.querySelectorAll('.voli').length,
         y: keranjang.querySelectorAll('.tenis').length,
@@ -92,6 +96,8 @@ function timbang() {
 }
 
 function gameStart() {
+    const sound = new Audio('./assets/sound/fclick.wav');
+    sound.play();
     document.querySelector('.content').style.display = 'grid';
     document.querySelector('.wrapper').style.display = 'none';
 }
@@ -152,6 +158,8 @@ function showNotif(teks) {
 }
 
 function undo() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     ditimbang = false;
     let chart;
     if (keranjang.querySelector('.chart2').children.length > 0)
@@ -171,6 +179,8 @@ function undo() {
 }
 
 function reset() {
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     ditimbang = false;
     keranjang.querySelector('.chart1').innerHTML = ''
     keranjang.querySelector('.chart2').innerHTML = ''
@@ -184,9 +194,11 @@ function reset() {
 }
 
 function saveFn() {
+
     if (ArrFn.length > 3)
         return showNotif('Maksimal 3 Fungsi dapat disimpan');
-
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     mainCount.x = document.querySelectorAll('.ball.voli').length
     mainCount.y = document.querySelectorAll('.ball.tenis').length
     mainCount.z = document.querySelectorAll('.ball.pong').length
@@ -205,8 +217,11 @@ function saveFn() {
 
 }
 function rmLine() {
+
     if (ArrFn.length == 1)
         return showNotif('Belum ada fungsi yang disimpan')
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     ArrFn.pop();
     ditimbang = false;
     count--;
@@ -223,6 +238,8 @@ function simpanFn() {
         return showNotif('Maksimal 3 Fungsi dapat disimpan');
     }
     else {
+        const sound = new Audio('./assets/sound/menyuu.wav');
+        sound.play();
         if (!ditimbang)
             return showNotif('Bola perlu ditimbang dulu')
         mainCount.x = document.querySelectorAll('.ball.voli').length
@@ -272,6 +289,8 @@ window.onload = function () {
 }
 
 document.querySelector('.inputGroup button').addEventListener('click', function () {
+    const sound = new Audio('./assets/sound/mm.wav');
+    sound.play();
     this.classList.add('active');
     const inputs = document.querySelectorAll('.qcard input');
 
@@ -329,6 +348,8 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
 })
 
 function openLatihan() {
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     const latihan = document.querySelector('.latihan');
     latihan.style.display = 'grid';
     document.querySelector('.qcard').style.transform = 'scale(0)';
@@ -339,6 +360,8 @@ function openLatihan() {
 }
 
 function closeLatihan() {
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     const latihan = document.querySelector('.latihan');
     latihan.style.opacity = '0';
     setTimeout(() => {
