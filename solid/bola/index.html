@@ -5,7 +5,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Persamaan Linear</title>
+    <title>Simulasi - Sistem Persamaan Linear</title>
+    <link rel="stylesheet" href="./assets/logo.svg" />
     <link rel="stylesheet" href="../fa/css/all.min.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/color.css" />
@@ -107,7 +108,8 @@
           </button>
           <button
             style="grid-column: span 2; grid-row: 4"
-            onclick="if(confirm('apakah anda yakin ingin keluar simulasi?'))document.location.reload();">
+            onclick="if(confirm('apakah anda yakin ingin keluar simulasi?')){  const sound = new Audio('./assets/sound/fclick.wav');
+    sound.play();;document.location.reload();}">
             <span> Keluar</span>
             <i class="fa fa-power-off fa-lg"></i>
           </button>
