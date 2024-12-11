@@ -5,6 +5,8 @@ function cariTinggi(sudut, lebar) {
     return lebar * Math.tan(sudut * (Math.PI / 180))
 }
 function aturSudut(t) {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     let sudut = t.value;
     if (t.value > 85) {
         t.value = 80;
@@ -63,6 +65,8 @@ const tempSize = {
     panjang: 0, lebar: 0
 }
 function toggleContent(t) {
+    const soundOpen = new Audio('./assets/sound/menyuu.wav');
+    soundOpen.play();
     const btn = t.querySelector('.show');
     if (btn.classList.contains('fa-expand')) {
         tempSize.panjang = document.querySelector('.page2').clientHeight;
@@ -102,6 +106,8 @@ function toggleContent(t) {
 
 document.querySelectorAll('.button-dock button').forEach(e => {
     e.addEventListener('click', () => {
+        const soundOpen = new Audio('./assets/sound/mm.wav');
+        soundOpen.play();
         if (!e.classList.contains('submit'))
 
             if (e.classList.contains('active'))
@@ -119,6 +125,8 @@ document.querySelectorAll('.button-dock button').forEach(e => {
 const closeBtn = document.querySelector('.answer button');
 
 closeBtn.addEventListener('click', (e) => {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.querySelector('.answer').style.transform = 'scale(0) translate(-200%) rotateY(0deg)';
     document.querySelector('.wrapper-answer').style.opacity = 0;
     setTimeout(() => {
@@ -127,6 +135,8 @@ closeBtn.addEventListener('click', (e) => {
 })
 
 function checkAnswer() {
+    const soundOpen = new Audio('./assets/sound/fclick.wav');
+    soundOpen.play();
     const btnGroup = document.querySelectorAll('.button-dock button');
     if (!document.querySelector('.button-dock .active'))
         return console.log('null')
@@ -151,6 +161,8 @@ function checkAnswer() {
 }
 
 function closeKesimpulan() {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     document.querySelector('.qcard').style.opacity = 0;
     document.querySelector('.qcard').style.transform = 'scale(0) translateY(-200%)';
     setTimeout(() => {
@@ -158,6 +170,8 @@ function closeKesimpulan() {
     }, 500)
 }
 function openKesimpulan() {
+    const soundOpen = new Audio('./assets/sound/flip.wav');
+    soundOpen.play();
     tutupMenu();
     document.querySelector('.kesimpulan').style.display = 'grid';
     document.querySelector('.qcard').style.opacity = 0;
