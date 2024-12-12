@@ -1,4 +1,6 @@
 function showDialog() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.querySelector('.panel').style.transform = 'scale(0)';
     document.querySelector('.dialogPetunjuk').style.display = 'grid';
     setTimeout(() => {
@@ -8,6 +10,8 @@ function showDialog() {
     document.querySelector('.cover').style.filter = 'blur(8px)';
 }
 function hideDialog() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.querySelector('.page1').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.filter = 'blur(0px)';
     document.querySelector('.dialogPetunjuk').style.display = 'none'
@@ -38,18 +42,26 @@ let isDrag = false;
 let rotate = 0;
 left.addEventListener('mousedown', e => {
     isDrag = "kanan";
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.addEventListener('mousemove', rotateDiv);
 });
 right.addEventListener('mousedown', e => {
     isDrag = "kiri";
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.addEventListener('mousemove', rotateDiv);
 });
 left.addEventListener('touchstart', e => {
     isDrag = "kanan";
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.addEventListener('touchmove', rotateDiv);
 });
 right.addEventListener('touchstart', e => {
     isDrag = "kiri";
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.addEventListener('touchmove', rotateDiv);
 });
 
@@ -174,6 +186,8 @@ hitungSudut();
 
 document.querySelectorAll('.control-nav a').forEach(item => {
     item.onclick = function () {
+        const sound = new Audio('./assets/sound/menyuu.wav');
+        sound.play();
         document.querySelectorAll('.control-nav a').forEach(i => {
             if (item != i)
                 i.classList.remove('active');
@@ -184,6 +198,8 @@ document.querySelectorAll('.control-nav a').forEach(item => {
 })
 
 function startGame() {
+    const sound = new Audio('./assets/sound/fclick.wav');
+    sound.play();
     document.querySelector('.page1').style.display = 'none';
     document.querySelector('.page2').style.display = 'grid';
     console.log('game start');
@@ -191,6 +207,8 @@ function startGame() {
 }
 
 function rotating(t) {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     parents = t.value - 0;
     t.placeholder = parents + "°";
     t.value = '';
@@ -213,11 +231,15 @@ function rotating(t) {
 
 }
 function tutupMenu() {
+    const sound = new Audio('./assets/sound/menyuu.wav');
+    sound.play();
     document.querySelector('.bcover').style.display = 'none';
     document.querySelector('.page2').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.flter = 'blur(0px)';
 }
 function bukaMenu() {
+    const sound = new Audio('./assets/sound/menyu.wav');
+    sound.play();
     document.querySelector('.bcover').style.display = 'block';
     document.querySelector('.page2').style.filter = 'blur(2px)';
     document.querySelector('.cover').style.flter = 'blur(2px)';
@@ -235,6 +257,8 @@ function showContoh() {
     }, 300)
 }
 function hideContoh() {
+    const sound = new Audio('./assets/sound/flip.wav');
+    sound.play();
     document.querySelector('.contoh').style.opacity = 0;
     setTimeout(() => {
         document.querySelector('.contoh').style.display = 'none';

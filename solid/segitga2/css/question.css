@@ -32,10 +32,22 @@
   margin: 0;
   display: grid;
   place-items: center;
+  position: relative;
 }
 .img img {
   width: 100%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.565);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.565); */
+}
+.img img:nth-child(2) {
+  width: 100%;
+  position: absolute;
+  animation: lootpoot 2.5s linear infinite;
+}
+
+@keyframes lootpoot {
+  50% {
+    opacity: 0;
+  }
 }
 .tanyaa {
   width: 100%;
