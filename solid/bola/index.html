@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulasi - Sistem Persamaan Linear</title>
-    <link rel="stylesheet" href="./assets/logo.svg" />
+    <link rel="shortcut icon" href="./assets/logo.svg" type="image/x-icon" />
     <link rel="stylesheet" href="../fa/css/all.min.css" />
     <link rel="stylesheet" href="./css/index.css" />
     <link rel="stylesheet" href="./css/color.css" />
@@ -28,8 +28,8 @@
       </div>
       <h1>Simulasi Sistem Persamaan Linear</h1>
       <div class="btn-group">
-        <button class="petunjuk" onclick="openLatihan()">
-          Latihan Soal <span><i class="fa fa-lightbulb"></i></span></button
+        <button class="petunjuk" onclick="openContoh()">
+          Petunjuk <span><i class="fa fa-lightbulb"></i></span></button
         ><button class="mulai" onclick="gameStart()">
           Mulai <span><i class="fa fa-play"></i></span>
         </button>
@@ -86,9 +86,13 @@
       <div class="desc">
         <div class="calk"></div>
         <div class="btn-groups">
-          <button style="grid-column: span 2; grid-row: 3" onclick="simpanFn()">
+          <button style="grid-column: 1; grid-row: 3" onclick="simpanFn()">
             <span> Simpan </span>
             <i class="fa fa-save fa-lg"></i>
+          </button>
+          <button style="grid-column: 2; grid-row: 3" onclick="openLatihan()">
+            <span> Soal </span>
+            <i class="fa fa-lightbulb fa-lg"></i>
           </button>
           <button style="grid-column: 2; grid-row: 1" onclick="undo()">
             <span> Batal </span>
@@ -155,6 +159,13 @@
         <div class="q-hint"></div>
         <img src="./assets/Correct.png" alt="" />
       </div>
+    </div>
+    <div class="contoh">
+      <div class="ccover" onclick="closeContoh()"></div>
+      <img src="./assets/page1.png" alt="" />
+      <button onclick="setImg()">
+        <i class="fa fa-arrow-circle-right fa-2xl"></i>
+      </button>
     </div>
     <script src="./js/index.js"></script>
   </body>

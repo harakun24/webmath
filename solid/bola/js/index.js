@@ -368,3 +368,28 @@ function closeLatihan() {
         latihan.style.display = 'none';
     }, 500)
 }
+
+let index = 1;
+
+function setImg() {
+    if (index == 3)
+        index = 0;
+    index++;
+    document.querySelector('.contoh img').src = `./assets/page${index}.png`
+}
+
+function openContoh() {
+    document.querySelector('.contoh').style.display = 'flex';
+    document.querySelector('.contoh img').style.opacity = 0;
+    setTimeout(() => {
+        document.querySelector('.contoh img').style.opacity = 1;
+
+    }, 100)
+}
+function closeContoh() {
+    document.querySelector('.contoh img').style.opacity = 0;
+    setTimeout(() => {
+
+        document.querySelector('.contoh').style.display = 'none';
+    }, 500)
+}
