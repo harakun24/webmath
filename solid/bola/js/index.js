@@ -337,14 +337,15 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
 
         // img.style.transform = 'scale(1) rotate(24deg)';
         // img.style.opacity = '1';
+        setTimeout(() => {
+            this.classList.remove('active');
+            const img = document.querySelector('.qcard img:nth-of-type(2)');
+            img.style.transform = 'scale(1) rotate(24deg) translateY(13%)';
+            img.style.opacity = '1';
+        }, 500)
     }
 
-    setTimeout(() => {
-        this.classList.remove('active');
-        const img = document.querySelector('.qcard img:nth-of-type(2)');
-        img.style.transform = 'scale(1) rotate(24deg) translateY(13%)';
-        img.style.opacity = '1';
-    }, 500)
+
 })
 
 function openLatihan() {
