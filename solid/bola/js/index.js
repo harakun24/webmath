@@ -39,7 +39,7 @@ let ArrFn = [''];
 function generateBall(ballName) {
     ditimbang = false;
     if (ArrFn.length > 3)
-        return showNotif('Maksimal 3 fungsi')
+        return showNotif('Maksimal 3 persamaan')
     if (keranjang.querySelector('.chart3').children.length > 4)
         return showNotif('overload balls');
 
@@ -196,7 +196,7 @@ function reset() {
 function saveFn() {
 
     if (ArrFn.length > 3)
-        return showNotif('Maksimal 3 Fungsi dapat disimpan');
+        return showNotif('Maksimal 3 persamaan dapat disimpan');
     const sound = new Audio('./assets/sound/menyuu.wav');
     sound.play();
     mainCount.x = document.querySelectorAll('.ball.voli').length
@@ -219,7 +219,7 @@ function saveFn() {
 function rmLine() {
 
     if (ArrFn.length == 1)
-        return showNotif('Belum ada fungsi yang disimpan')
+        return showNotif('Belum ada persamaan yang disimpan')
     const sound = new Audio('./assets/sound/menyuu.wav');
     sound.play();
     ArrFn.pop();
@@ -231,11 +231,11 @@ function rmLine() {
     // else
     saveFn();
     // reset();
-    showNotif('Berhasil menghapus fungsi')
+    showNotif('Berhasil menghapus persamaan')
 }
 function simpanFn() {
     if (ArrFn.length > 3) {
-        return showNotif('Maksimal 3 Fungsi dapat disimpan');
+        return showNotif('Maksimal 3 persamaan dapat disimpan');
     }
     else {
         const sound = new Audio('./assets/sound/menyuu.wav');
@@ -271,7 +271,7 @@ function simpanFn() {
                 document.querySelector('.katex-html .vlist > span:nth-of-type(2) .mord').style.opacity = 1;
             }
             reset();
-            return showNotif('Fungsi tersimpan!');
+            return showNotif('Persamaan tersimpan!');
         }
         else
             return showNotif('Minimal timbang 2 jenis bola');
@@ -365,6 +365,18 @@ function closeLatihan() {
     sound.play();
     const latihan = document.querySelector('.latihan');
     latihan.style.opacity = '0';
+    document.querySelectorAll('.qcard input').forEach(e => {
+        e.value = '';
+        e.classList.remove('valid')
+        e.classList.remove('invalid')
+    })
+    const img = document.querySelector('.qcard img:nth-of-type(2)');
+    img.style.transform = 'scale(0) rotate(-21deg)';
+
+
+    document.querySelector('.q-hint').classList.remove('active');
+    document.querySelector('.q-hint').innerHTML = ''
+
     setTimeout(() => {
         latihan.style.display = 'none';
     }, 500)
