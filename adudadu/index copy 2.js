@@ -1,58 +1,43 @@
 let statusClick = true;
 const soundStart = new Audio('./Aset/sound/fclick.wav');
 
-let pCounter = 0;
+
 function clicked(t, x, y) {
     const soundFlip = new Audio('./Aset/sound/menyu.wav');
     // const soundFlip = new Audio('./Aset/sound/flip2.wav');
 
-    soundFlip.play();
-    t.innerText = `( ${x} , ${y} )`;
-    t.style.transform = "rotateY(360deg)";
+    if (statusClick) {
+        soundFlip.play();
+        statusClick = false;
 
-    // if (t.classList.contains('yellow')) {
-    //     t.classList.remove('yellow')
-    //     t.innerText = ``;
-    //     t.style.transform = "rotateY(0deg)";
-    // }
-    // else {
-    //     t.classList.add('yellow')
-    //     // t.innerText = ``;
-    // }
-    // const rowHat = document.querySelector(`.row:nth-child(${x + 1}) .box:nth-child(1)`);
-    // const colHat = document.querySelector(`.row:nth-child(1) .box:nth-child(${y + 1})`);
-    // rowHat.querySelector('img').src = `./Aset/merah${x}.png`;
-    // colHat.querySelector('img').src = `./Aset/merah${y}.png`;
-    // rowHat.style.transform = 'translate(-14px)';
-    // colHat.style.transform = 'translateY(-14px)';
-    // setTimeout(() => {
-    //     colHat.style.transform = 'translateY(0px)';
-    //     rowHat.style.transform = 'translate(0px)';
-    //     setTimeout(() => {
-    //         rowHat.querySelector('img').src = `./Aset/putih${x}.png`;
-    //         colHat.querySelector('img').src = `./Aset/putih${y}.png`;
-    //         statusClick = true;
-    //     }, 200)
-    // }, 100)
-
-    let arrAnswer = (mappingDice(currentCondition.val, currentCondition.index));
-    if (currentCondition.val2 != null)
-        arrAnswer = [...arrAnswer, ...mappingDice(currentCondition.val2, currentCondition.index2)];
-
-    let status = false;
-    for (const item of arrAnswer) {
-        if ((item.A == x && item.B == y) || (item.A == y && item.B == x)) {
-            status = true;
-            break;
+        if (t.classList.contains('yellow')) {
+            t.classList.remove('yellow')
+            t.innerText = ``;
+            t.style.transform = "rotateY(0deg)";
         }
+        else {
+            t.classList.add('yellow')
+            t.innerText = `( ${x} , ${y} )`;
+            // t.innerText = ``;
+            t.style.transform = "rotateY(360deg)";
+        }
+        const rowHat = document.querySelector(`.row:nth-child(${x + 1}) .box:nth-child(1)`);
+        const colHat = document.querySelector(`.row:nth-child(1) .box:nth-child(${y + 1})`);
+        rowHat.querySelector('img').src = `./Aset/merah${x}.png`;
+        colHat.querySelector('img').src = `./Aset/merah${y}.png`;
+        rowHat.style.transform = 'translate(-14px)';
+        colHat.style.transform = 'translateY(-14px)';
+        setTimeout(() => {
+            colHat.style.transform = 'translateY(0px)';
+            rowHat.style.transform = 'translate(0px)';
+            setTimeout(() => {
+                rowHat.querySelector('img').src = `./Aset/putih${x}.png`;
+                colHat.querySelector('img').src = `./Aset/putih${y}.png`;
+                statusClick = true;
+            }, 200)
+        }, 100)
+        chanceChange(t, x, y)
     }
-    let breaker = t.classList.contains('green') || t.classList.contains('red') ? true : false;
-    if (status)
-        t.classList.add('green')
-    else
-        t.classList.add('red')
-
-    chanceChange(breaker, x, y)
 
 
 }
@@ -74,7 +59,7 @@ const condition = [
     'jumlahnya kurang dari', // kurang dari
     'jumlahnya', //sama
     'ada bilangan', //ada
-    'jumlahnya minimal', //setidaknya,
+    'jumlahnya setidaknya', //setidaknya,
     'muncul bilangan yang sama',//equal
     'hasil kalinya genap',
     'hasil kalinya ganjil',
@@ -86,9 +71,8 @@ const kunci = document.getElementById('kunci');
 const jebakan = document.getElementById('jebakan');
 
 function chanceChange(t, x, y) {
-    if (t)
-        return;
-    let count = ++pCounter;
+    const yellow = document.querySelectorAll('.yellow')
+    const count = yellow.length;
     peluang.innerHTML = `${count}`;
     // yellow.forEach(item => {
     //     item.innerHTML = `${x} , ${y}`
@@ -135,8 +119,7 @@ function indexing() {
     counter = localStorage.getItem('counterdadu') - 0 || 0;
     score = localStorage.getItem('scoredadu') - 0 || 0;
     level = localStorage.getItem('leveldadu') - 0 || 0;
-    pCounter = 0;
-    document.querySelector('#peluang').innerHTML = pCounter;
+
     if (counter > 4 + (level * 5)) {
         document.querySelector('.board .peluang').classList.remove('active');
         // if (counter > 2) {
@@ -260,7 +243,8 @@ function indexing() {
 function checkAnswer() {
     const soundIndex = new Audio('./Aset/sound/menyuu.wav');
     soundIndex.play();
-    if (pCounter < 1)
+    const count = document.querySelectorAll('.yellow').length;
+    if (count < 1)
         return alert('minimal pilih satu kotak!');
     counter++;
     let arrAnswer = (mappingDice(currentCondition.val, currentCondition.index));
@@ -280,8 +264,10 @@ function checkAnswer() {
             el.classList.remove('yellow');
         }
     }
-    document.querySelectorAll('.red').forEach(e => {
+    document.querySelectorAll('.yellow').forEach(e => {
         e.innerHTML = "&#10005;";
+        e.classList.remove('yellow');
+        e.classList.add('red');
     })
     document.querySelectorAll('.row:not(:nth-child(1)) .box:not(:nth-child(1)):not(.red):not(.yellow):not(.green):not(.flag)').forEach(e => {
         e.innerHTML = "&#10005;";
