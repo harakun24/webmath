@@ -129,6 +129,7 @@ body {
   position: absolute;
   backdrop-filter: blur(3px);
   overflow: hidden;
+  /* display: flex; */
   display: none;
   align-items: center;
   justify-content: center;
@@ -146,11 +147,14 @@ body {
   border-radius: 50%;
   aspect-ratio: 1;
   cursor: pointer;
-  transform: translate(-50%);
+  transform: translate(50%);
   border: 5px solid rgba(0, 0, 0, 0.658);
   background-color: rgb(58, 58, 245);
   color: white;
   transition: cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+}
+.contoh button:nth-of-type(2) {
+  transform: translate(-50%);
 }
 .contoh button:hover {
   border: 5px solid #4a8f0b;
