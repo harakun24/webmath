@@ -85,6 +85,7 @@ body {
 .board .peluang {
   margin: 0;
   display: none;
+  width: fit-content;
 }
 .board .peluang.active {
   display: flex;
@@ -189,6 +190,9 @@ body {
 .pertanyaan {
   /* background-color: red; */
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* font-size: 80%; */
   /* width: 100%; */
 }
@@ -276,7 +280,7 @@ body {
   box-shadow: none;
   opacity: 0.8;
   font-weight: bold;
-  color: rgb(79, 8, 8);
+  color: rgb(255, 255, 255);
 }
 .green {
   background-color: #46de1c;
@@ -303,11 +307,12 @@ body {
 }
 .null {
   border: 1px solid rgba(196, 22, 6, 0.999);
-  color: rgb(18, 8, 1);
+  color: rgb(56, 4, 4);
   border-radius: 25%;
   box-shadow: none;
   opacity: 0.7;
   background-color: rgb(239, 114, 114);
+  font-weight: bold;
 }
 #rate {
   /* transform: scale(150%) !important; */
@@ -549,7 +554,7 @@ body {
     gap: 0px;
   }
   .pertanyaan {
-    font-size: 80%;
+    font-size: 60%;
   }
   .box {
     font-size: 40%;
@@ -612,3 +617,10 @@ body {
     grid-row: 4/6;
   }
 } */
+
+.quit.pass {
+  display: none;
+}
+.quit:not(.pass) {
+  display: flex;
+}
