@@ -3,7 +3,7 @@ const soundStart = new Audio('./Aset/sound/fclick.wav');
 
 let pCounter = 0;
 function clicked(t, x, y) {
-    const soundFlip = new Audio('./Aset/sound/menyu.wav');
+    const soundFlip = new Audio('./Aset/sound/flip.wav');
     // const soundFlip = new Audio('./Aset/sound/flip2.wav');
 
     soundFlip.play();
@@ -52,6 +52,20 @@ function clicked(t, x, y) {
     else
         t.classList.add('red')
 
+    const rowHat = document.querySelector(`.row:nth-child(${x + 1}) .box:nth-child(1)`);
+    const colHat = document.querySelector(`.row:nth-child(1) .box:nth-child(${y + 1})`);
+    rowHat.querySelector('img').src = `./Aset/merah${x}.png`;
+    colHat.querySelector('img').src = `./Aset/merah${y}.png`;
+    rowHat.style.transform = 'translate(-14px)';
+    colHat.style.transform = 'translateY(-14px)';
+    setTimeout(() => {
+        colHat.style.transform = 'translateY(0px)';
+        rowHat.style.transform = 'translate(0px)';
+        setTimeout(() => {
+            rowHat.querySelector('img').src = `./Aset/putih${x}.png`;
+            colHat.querySelector('img').src = `./Aset/putih${y}.png`;
+        }, 200)
+    }, 100)
     chanceChange(breaker, x, y)
 
 
@@ -137,6 +151,8 @@ function indexing() {
     level = localStorage.getItem('leveldadu') - 0 || 0;
     pCounter = 0;
     document.querySelector('#peluang').innerHTML = pCounter;
+    if (document.querySelector('.quit').classList.contains('pass'))
+        document.querySelector('.quit').classList.remove('pass');
     if (counter > 4 + (level * 5)) {
         document.querySelector('.board .peluang').classList.remove('active');
         // if (counter > 2) {
@@ -247,7 +263,7 @@ function indexing() {
           </div>`;
     document.querySelectorAll('.row:not(:nth-child(1)) .box:not(:nth-child(1))').forEach(e => {
         e.addEventListener('mouseenter', () => {
-            e.style.background = 'rgba(88, 236, 47, 0.757)';
+            e.style.background = 'rgba(245, 245, 12, 0.795)';
         })
         e.addEventListener('mouseleave', () => {
             setTimeout(() => {
@@ -400,6 +416,7 @@ if (localStorage.getItem('gameStart') == 'true')
 function quit() {
     soundStart.play();
     if (confirm('yakin ingin keluar? Level anda akan direset')) {
+        document.querySelector('.quit').classList.add('pass');
         soundStart.play();
         localStorage.setItem('gameStart', false);
         localStorage.setItem('leveldadu', 0);
