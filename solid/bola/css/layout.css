@@ -79,9 +79,9 @@
 
 .alert {
   position: absolute;
-  padding: 10px;
+  padding: 20px 10px;
   font-weight: bold;
-  background-color: rgba(233, 133, 62, 0.976);
+  background-color: rgba(243, 151, 13, 0.976);
   color: rgba(76, 25, 25, 0.786);
   margin: 10px;
   border-radius: 7px;

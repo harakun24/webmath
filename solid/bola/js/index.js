@@ -385,9 +385,15 @@ function closeLatihan() {
 let index = 1;
 
 function setImg() {
-    if (index == 3)
+    if (index == 4)
         index = 0;
     index++;
+    document.querySelector('.contoh img').src = `./assets/page${index}.png`
+}
+function setImgBack() {
+    if (index == 1)
+        index = 5;
+    index--;
     document.querySelector('.contoh img').src = `./assets/page${index}.png`
 }
 
