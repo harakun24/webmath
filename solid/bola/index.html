@@ -127,32 +127,18 @@
     <div class="latihan">
       <div class="fcover" onclick="closeLatihan()"></div>
       <div class="qcard">
-        <img src="./assets/docc3.gif" alt="" />
+        <img src="./assets/docc3.gif" style="opacity: 0" alt="" />
+        <div class="calk"></div>
         <p>Jawablah berat dari masing-masing bola yang telah anda timbang!</p>
         <div class="inputGroup">
           <label for="bvoli">Bola Voli</label>
-          <input
-            id="bvoli"
-            type="number"
-            min="0"
-            placeholder="Contoh: 10"
-            onchange="document.querySelector('.inputGroup button').click()" />
+          <input id="bvoli" type="number" min="0" placeholder="Contoh: 10" />
           <span>gram</span>
           <label for="btenis">Bola Tenis</label>
-          <input
-            id="btenis"
-            type="number"
-            min="0"
-            placeholder="Contoh: 5"
-            onchange="document.querySelector('.inputGroup button').click()" />
+          <input id="btenis" type="number" min="0" placeholder="Contoh: 5" />
           <span>gram</span>
           <label for="bpong">Bola Ping-pong</label>
-          <input
-            id="bpong"
-            type="number"
-            min="0"
-            placeholder="Contoh: 20"
-            onchange="document.querySelector('.inputGroup button').click()" />
+          <input id="bpong" type="number" min="0" placeholder="Contoh: 20" />
           <span>gram</span>
           <button>Jawab</button>
         </div>

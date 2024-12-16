@@ -351,6 +351,7 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
 function openLatihan() {
     const sound = new Audio('./assets/sound/menyuu.wav');
     sound.play();
+    document.querySelector('.qcard .calk').innerHTML = document.querySelector('.desc .calk').innerHTML;
     const latihan = document.querySelector('.latihan');
     latihan.style.display = 'grid';
     document.querySelector('.qcard').style.transform = 'scale(0)';
