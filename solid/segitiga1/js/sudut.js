@@ -58,8 +58,10 @@ function resetSegitiga() {
 
     // hitungSudut();
     tutupMenu();
-    document.getElementById('sudut').value = 36.87;
-    document.getElementById('rotasi').value = 0;
+    document.getElementById('sudut').value = '';
+    document.getElementById('rotasi').value = '';
+    document.getElementById('sudut').placeholder = '36.87°';
+    document.getElementById('rotasi').placeholder = '0°';
 }
 const tempSize = {
     panjang: 0, lebar: 0
