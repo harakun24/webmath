@@ -125,6 +125,12 @@ input.valid {
   opacity: 0;
 }
 
+.qcard .calk {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 170%;
+}
+
 @media (max-width: 550px) {
   .qcard {
     width: 85%;
