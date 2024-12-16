@@ -325,6 +325,9 @@ function checkAnswer() {
     // let currentScore = Math.ceil(answer.benar / answer.all * 10) - Math.ceil(answer.salah / 36 * 3);
     let currentScore = answer.all - answer.benar == 0 ? 10 : 0;
 
+    if (answer.salah > 0)
+        currentScore = 0;
+
     // if (currentScore > 0)
     score += currentScore;
 
