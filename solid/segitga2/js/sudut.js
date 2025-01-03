@@ -80,7 +80,7 @@ const tempSize = {
     panjang: 0, lebar: 0
 }
 function toggleContent(t) {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     const btn = t.querySelector('.show');
     if (btn.classList.contains('fa-expand')) {
@@ -123,7 +123,7 @@ const checkboxes = document.querySelectorAll('.check input');
 
 checkboxes.forEach((checkbox, index) => {
     checkbox.addEventListener('change', function () {
-        const sound = new Audio('./assets/sound/menyuu.wav');
+        const sound = new Audio('./assets/sound/flip.wav');
         sound.play();
         const btm = document.querySelectorAll('.btm')[index]; // Mengambil elemen .btm yang sesuai
         btm.style.opacity = this.checked ? 1 : 0; // Mengatur opasitas
@@ -264,7 +264,7 @@ function closeQuest() {
     document.body.classList.add('body');
 }
 function openQuest() {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     window.scrollTo({
         top: 0
@@ -278,11 +278,14 @@ function openQuest() {
 }
 
 function menjawab() {
-    const sound = new Audio('./assets/sound/fclick.wav');
-    sound.play();
+
     const answer = document.querySelector('.answ input').value;
     if (!answer)
         return;
+
+    let strAudio = answer != '0,4' ? 'w' : 'c';
+    const sound = new Audio(`./assets/sound/${strAudio}.mp3`);
+    sound.play();
     if (answer == '0,4') {
         document.querySelector('.q-answer img').src = './assets/Correct.png';
         document.querySelector('.q-answer h1').innerHTML = 'Selamat!';
