@@ -13,7 +13,7 @@ document.querySelectorAll('.btn-group button').forEach(itm => {
 })
 document.querySelectorAll('.add').forEach(itm => {
     itm.addEventListener('mousedown', () => {
-        const sound = new Audio('./assets/sound/menyu.wav');
+        const sound = new Audio('./assets/sound/flip.wav');
         sound.play();
         itm.classList.add('active');
         setTimeout(() => {
@@ -70,7 +70,7 @@ function generateBall(ballName) {
 }
 
 function timbang() {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     const balls = {
         x: keranjang.querySelectorAll('.voli').length,
@@ -96,7 +96,7 @@ function timbang() {
 }
 
 function gameStart() {
-    const sound = new Audio('./assets/sound/fclick.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     document.querySelector('.content').style.display = 'grid';
     document.querySelector('.wrapper').style.display = 'none';
@@ -179,7 +179,7 @@ function undo() {
 }
 
 function reset() {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     ditimbang = false;
     keranjang.querySelector('.chart1').innerHTML = ''
@@ -197,7 +197,7 @@ function saveFn() {
 
     if (ArrFn.length > 3)
         return showNotif('Maksimal 3 persamaan dapat disimpan');
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     mainCount.x = document.querySelectorAll('.ball.voli').length
     mainCount.y = document.querySelectorAll('.ball.tenis').length
@@ -220,7 +220,7 @@ function rmLine() {
 
     if (ArrFn.length == 1)
         return showNotif('Belum ada persamaan yang disimpan')
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     ArrFn.pop();
     ditimbang = false;
@@ -238,7 +238,7 @@ function simpanFn() {
         return showNotif('Maksimal 3 persamaan dapat disimpan');
     }
     else {
-        const sound = new Audio('./assets/sound/menyuu.wav');
+        const sound = new Audio('./assets/sound/flip.wav');
         sound.play();
         if (!ditimbang)
             return showNotif('Bola perlu ditimbang dulu')
@@ -289,8 +289,7 @@ window.onload = function () {
 }
 
 document.querySelector('.inputGroup button').addEventListener('click', function () {
-    const sound = new Audio('./assets/sound/mm.wav');
-    sound.play();
+
     this.classList.add('active');
     const inputs = document.querySelectorAll('.qcard input');
 
@@ -325,7 +324,9 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
             inputs[2].classList.add('invalid')
 
         document.querySelector('.q-hint').classList.add('active');
-
+        let strAudio = status < 3 ? 'w' : 'c';
+        const sound = new Audio(`./assets/sound/${strAudio}.mp3`);
+        sound.play();
         if (status < 3) {
             img.src = './assets/Wrong.png'
             document.querySelector('.q-hint').innerHTML = 'Silahkan periksa jawaban anda kembali!'
@@ -349,7 +350,7 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
 })
 
 function openLatihan() {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     document.querySelector('.qcard .calk').innerHTML = document.querySelector('.desc .calk').innerHTML;
     const latihan = document.querySelector('.latihan');
@@ -362,7 +363,7 @@ function openLatihan() {
 }
 
 function closeLatihan() {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     const latihan = document.querySelector('.latihan');
     latihan.style.opacity = '0';
