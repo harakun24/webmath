@@ -40,7 +40,7 @@ body {
   /* display: none; */
 }
 .page1 h3 {
-  margin-top: 10%;
+  margin-top: 5%;
   color: var(--blue);
   text-align: center;
   opacity: 0.6;
@@ -104,7 +104,7 @@ body {
   justify-content: center;
 }
 .icon img {
-  width: 52%;
+  width: 70%;
 }
 .dialogPetunjuk {
   width: 100%;
