@@ -1,5 +1,5 @@
 let statusClick = true;
-const soundStart = new Audio('./Aset/sound/fclick.wav');
+const soundStart = new Audio('./Aset/sound/flip.wav');
 
 let pCounter = 0;
 function clicked(t, x, y) {
@@ -142,7 +142,7 @@ function randomized() {
     return result;
 }
 function indexing() {
-    const soundIndex = new Audio('./Aset/sound/mm.wav');
+    const soundIndex = new Audio('./Aset/sound/flip.wav');
     soundIndex.play();
 
     document.querySelector('#quest').classList.add('active')
@@ -185,10 +185,10 @@ function indexing() {
     document.querySelector('#add').innerHTML = `${score} poin`
     const r = randomized();
     currentCondition = r;
-    let strText = `${counter + 1}. Peluang ${condition[r.index]} ${r.index < 4 ? r.val : ''}`;
+    let strText = `${counter + 1}. Jika dua buah dadu dilempar, tentukan: <br/> Peluang ${condition[r.index]} ${r.index < 4 ? r.val : ''}`;
     if (r.val2)
         strText += ` atau ${condition[r.index2]} ${r.index2 < 4 ? r.val2 : ''}`
-    quest.innerText = strText;
+    quest.innerHTML = strText;
 
     localStorage.setItem('counterdadu', counter)
 
@@ -199,7 +199,7 @@ function indexing() {
     kunci.innerHTML = `??`;
     jebakan.innerHTML = `??`;
     document.querySelector('.inner').innerHTML = `<div class="row">
-            <div class="box"></div>
+            <div class="box" style="font-weight:bold;position:relative"><div style="position:absolute;top:50%;left:50%;transform:translate(-50%) translateY(-50%)">ruang <br/> sampel</div></div>
             <div class="box"><img src="./Aset/putih1.png" alt=""></div>
             <div class="box"><img src="./Aset/putih2.png" alt=""></div>
             <div class="box"><img src="./Aset/putih3.png" alt=""></div>
@@ -274,8 +274,7 @@ function indexing() {
     })
 }
 function checkAnswer() {
-    const soundIndex = new Audio('./Aset/sound/menyuu.wav');
-    soundIndex.play();
+
     if (pCounter < 1)
         return alert('minimal pilih satu kotak!');
     counter++;
@@ -330,6 +329,10 @@ function checkAnswer() {
 
     // if (currentScore > 0)
     score += currentScore;
+    let strAudio = currentScore < 10 ? 'w.mp3' : 'c.mp3';
+
+    const soundIndex = new Audio('./Aset/sound/' + strAudio);
+    soundIndex.play();
 
     localStorage.setItem('scoredadu', score);
     localStorage.setItem('counterdadu', counter);
