@@ -67,7 +67,7 @@ const tempSize = {
     panjang: 0, lebar: 0
 }
 function toggleContent(t) {
-    const soundOpen = new Audio('./assets/sound/menyuu.wav');
+    const soundOpen = new Audio('./assets/sound/flip.wav');
     soundOpen.play();
     const btn = t.querySelector('.show');
     if (btn.classList.contains('fa-expand')) {
@@ -108,7 +108,7 @@ function toggleContent(t) {
 
 document.querySelectorAll('.button-dock button').forEach(e => {
     e.addEventListener('click', () => {
-        const soundOpen = new Audio('./assets/sound/mm.wav');
+        const soundOpen = new Audio('./assets/sound/flip.wav');
         soundOpen.play();
         if (!e.classList.contains('submit'))
 
@@ -137,8 +137,7 @@ closeBtn.addEventListener('click', (e) => {
 })
 
 function checkAnswer() {
-    const soundOpen = new Audio('./assets/sound/fclick.wav');
-    soundOpen.play();
+
     const btnGroup = document.querySelectorAll('.button-dock button');
     if (!document.querySelector('.button-dock .active'))
         return console.log('null')
@@ -150,16 +149,24 @@ function checkAnswer() {
         document.querySelector('.answer').style.transform = 'scale(1) translate(0) rotateY(0deg)';
         // document.querySelector('.answer').style.opacity = 1;
     }, 500)
+    let strAudio = '';
     if (btnGroup[0].classList.contains('active')) {
         document.querySelector('.answer img').src = './assets/Correct.png';
         document.querySelector('.answer h2').innerHTML = 'Selamat! Kamu memahami sisi segitiga siku-siku';
         document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Tali layangan merupakan sisi terpanjang pada segitiga yang terbentuk. Karena itu, tali layangan adalah sisi miring.';
+        strAudio = 'c';
     }
     else {
         document.querySelector('.answer img').src = './assets/Wrong.png';
         document.querySelector('.answer h2').innerHTML = 'Sayang sekali! Jawaban kamu belum tepat.';
         document.querySelector('.answer p').innerHTML = '&nbsp;&nbsp;Coba cermati kembali gambar yang disajikan. Kemudian silahkan jawab kembali!';
+        strAudio = 'w';
     }
+    setTimeout(() => {
+
+        const soundOpen = new Audio(`./assets/sound/${strAudio}.mp3`);
+        soundOpen.play();
+    }, 300)
 }
 
 function closeKesimpulan() {
