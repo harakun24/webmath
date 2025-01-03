@@ -1,5 +1,5 @@
 function showDialog() {
-    const soundOpen = new Audio('./assets/sound/mm.wav');
+    const soundOpen = new Audio('./assets/sound/flip.wav');
     soundOpen.play();
     document.querySelector('.panel').style.transform = 'scale(0)';
     document.querySelector('.dialogPetunjuk').style.display = 'grid';
@@ -10,7 +10,7 @@ function showDialog() {
     document.querySelector('.cover').style.filter = 'blur(8px)';
 }
 function hideDialog() {
-    const soundOpen = new Audio('./assets/sound/menyu.wav');
+    const soundOpen = new Audio('./assets/sound/flip.wav');
     soundOpen.play();
     document.querySelector('.page1').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.filter = 'blur(0px)';
@@ -155,7 +155,7 @@ document.querySelectorAll('.control-nav a').forEach(item => {
 })
 
 function startGame() {
-    const soundOpen = new Audio('./assets/sound/fclick.wav');
+    const soundOpen = new Audio('./assets/sound/flip.wav');
     soundOpen.play();
     document.querySelector('.page1').style.display = 'none';
     document.querySelector('.page2').style.display = 'grid';
@@ -189,14 +189,14 @@ function rotating(t) {
 
 }
 function tutupMenu() {
-    const soundOpen = new Audio('./assets/sound/menyuu.wav');
+    const soundOpen = new Audio('./assets/sound/flip.wav');
     soundOpen.play();
     document.querySelector('.bcover').style.display = 'none';
     document.querySelector('.page2').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.flter = 'blur(0px)';
 }
 function bukaMenu() {
-    const soundOpen = new Audio('./assets/sound/menyuu.wav');
+    const soundOpen = new Audio('./assets/sound/flip.wav');
     soundOpen.play();
     document.querySelector('.bcover').style.display = 'block';
     document.querySelector('.page2').style.filter = 'blur(2px)';
