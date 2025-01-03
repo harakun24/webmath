@@ -16,23 +16,6 @@ function hideDialog() {
     document.querySelector('.cover').style.filter = 'blur(0px)';
     document.querySelector('.dialogPetunjuk').style.display = 'none'
 }
-// Mengubah variabel CSS di :root
-// function varChange(nama, nilai) {
-//     document.documentElement.style.setProperty(nama, nilai);
-
-// }
-// let aniX = -30, aniY = -10;
-// function rndm(min, max) {
-//     return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-// setInterval(() => {
-//     const increment = [rndm(-20, 30), rndm(-20, 35)];
-//     aniX += increment[0];
-//     aniY += increment[1];
-//     varChange('--moveX', `${aniX}%`);
-//     varChange('--moveY', `${aniY}%`);
-
-// }, 40000)
 
 const segitiga = document.querySelector('.wrapper-segitiga');
 const right = document.querySelector('.btnUp');
@@ -186,7 +169,7 @@ hitungSudut();
 
 document.querySelectorAll('.control-nav a').forEach(item => {
     item.onclick = function () {
-        const sound = new Audio('./assets/sound/menyuu.wav');
+        const sound = new Audio('./assets/sound/flip.wav');
         sound.play();
         document.querySelectorAll('.control-nav a').forEach(i => {
             if (item != i)
@@ -198,7 +181,7 @@ document.querySelectorAll('.control-nav a').forEach(item => {
 })
 
 function startGame() {
-    const sound = new Audio('./assets/sound/fclick.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     document.querySelector('.page1').style.display = 'none';
     document.querySelector('.page2').style.display = 'grid';
@@ -231,14 +214,14 @@ function rotating(t) {
 
 }
 function tutupMenu() {
-    const sound = new Audio('./assets/sound/menyuu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     document.querySelector('.bcover').style.display = 'none';
     document.querySelector('.page2').style.filter = 'blur(0px)';
     document.querySelector('.cover').style.flter = 'blur(0px)';
 }
 function bukaMenu() {
-    const sound = new Audio('./assets/sound/menyu.wav');
+    const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
     document.querySelector('.bcover').style.display = 'block';
     document.querySelector('.page2').style.filter = 'blur(2px)';
