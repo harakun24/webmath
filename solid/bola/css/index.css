@@ -52,10 +52,10 @@ body {
 .wrapper h1 {
   color: var(--yellow);
   font-family: poppins;
-  font-size: 2.4em;
+  font-size: 1.7em;
   opacity: 0.8;
   letter-spacing: 2px;
-  text-shadow: 4px 5px 0px #394da4b9;
+  text-shadow: 4px 3px 0px #394da4b9;
   /* transform: translateY(-20px); */
   margin-top: -10px;
   grid-row: 3;
@@ -70,7 +70,7 @@ body {
   width: 100%;
   display: grid;
   grid-template-columns: 10% 1fr 20px 1fr 10%;
-  grid-template-rows: 25% 1fr 25%;
+  grid-template-rows: 30% 1fr 30%;
   /* background-color: green; */
   /* grid-row: 3; */
 }
