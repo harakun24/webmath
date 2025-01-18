@@ -334,6 +334,9 @@ h4 button:hover {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: 1fr 1fr auto;
   }
+  .qcard {
+    overflow: visible;
+  }
 }
 
 @media (orientation: landscape) and (max-height: 550px) {
