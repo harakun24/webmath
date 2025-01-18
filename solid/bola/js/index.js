@@ -45,7 +45,7 @@ function generateBall(ballName) {
 
     const count = document.querySelectorAll('.ball.' + ballName).length;
     if (count > 2)
-        return showNotif('Maksimal 3 bola untuk jenis ' + (ballName == 'pong' ? 'ping-pong' : ballName));
+        return showNotif('Maksimal 3 bola untuk jenis ' + (ballName == 'pong' ? 'ping pong' : ballName));
 
     const ball = document.createElement('div');
     ball.classList.add('ball');
@@ -254,7 +254,7 @@ function simpanFn() {
                 const ex = totalCount.map(e => e.x);
                 const ey = totalCount.map(e => e.y);
                 const ez = totalCount.map(e => e.z);
-                console.log({ ex, ey, ez });
+                // console.log({ ex, ey, ez });
 
                 if (!(ex.reduce((a, b) => a + b, 0) && ey.reduce((a, b) => a + b, 0) && ez.reduce((a, b) => a + b, 0))) {
                     count--;
@@ -343,6 +343,12 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
             const img = document.querySelector('.qcard img:nth-of-type(2)');
             img.style.transform = 'scale(1) rotate(24deg) translateY(13%)';
             img.style.opacity = '1';
+
+            setTimeout(() => {
+                img.style.transform = 'scale(0.5) rotate(0deg) translateY(13%)';
+                img.style.opacity = '0';
+
+            }, 1200)
         }, 500)
     }
 
@@ -352,6 +358,9 @@ document.querySelector('.inputGroup button').addEventListener('click', function 
 function openLatihan() {
     const sound = new Audio('./assets/sound/flip.wav');
     sound.play();
+    if (ArrFn.length != 4)
+        return showNotif('Simpan 3 Persamaan terlebih dulu')
+
     document.querySelector('.qcard .calk').innerHTML = document.querySelector('.desc .calk').innerHTML;
     const latihan = document.querySelector('.latihan');
     latihan.style.display = 'grid';
@@ -367,7 +376,8 @@ function closeLatihan() {
     sound.play();
     const latihan = document.querySelector('.latihan');
     latihan.style.opacity = '0';
-    document.querySelectorAll('.qcard input').forEach(e => {
+    document.querySelector('.qcard .calk').innerHTML = '';
+    document.querySelectorAll('.inputGroup input').forEach(e => {
         e.value = '';
         e.classList.remove('valid')
         e.classList.remove('invalid')
