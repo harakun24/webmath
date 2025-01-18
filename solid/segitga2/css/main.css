@@ -443,7 +443,7 @@ label b {
 }
 @media (max-width: 550px) {
   .page2 {
-    height: 95%;
+    height: 98%;
     width: 85%;
     /* aspect-ratio: 8/16; */
     grid-template-rows: 1.4fr 1fr 1fr;
