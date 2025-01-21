@@ -335,7 +335,7 @@ h4 button:hover {
     grid-template-rows: 1fr 1fr auto;
   }
   .qcard {
-    overflow: visible;
+    overflow: scroll;
   }
 }
 
