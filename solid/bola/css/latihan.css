@@ -22,14 +22,14 @@
 .qcard {
   z-index: 2;
   background-color: white;
-  aspect-ratio: 9/10;
-  height: 80%;
+  aspect-ratio: 9/12;
+  height: 90%;
   border-radius: 7px;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.418);
   overflow: hidden;
   padding: 15px;
   display: grid;
-  grid-template-rows: 1fr auto 1fr;
+  grid-template-rows: 1fr auto 1fr 20px;
   transition: cubic-bezier(0.47, 0, 0.745, 0.715) 0.35s;
 }
 .qcard p {
